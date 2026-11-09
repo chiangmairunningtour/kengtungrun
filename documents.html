@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14304d">
+<title>ส่งเอกสารผ่านแดน | เชียงตุง RUN 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14304d; --blue:#095781; --blue-2:#0f6a96; --gold:#e39b1c; --gold-2:#f6c85f;
+    --cream:#f8f1e5; --cyan:#62cdf2; --ink:#14304d; --mute:#5d6f84; --line:#e5dccb;
+    --weave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='16'%3E%3Crect width='8' height='8' fill='%237ad8c5'/%3E%3Crect x='8' width='16' height='8' fill='%2362cdf2'/%3E%3Crect x='24' width='16' height='8' fill='%23095781'/%3E%3Crect x='40' width='12' height='8' fill='%23e39b1c'/%3E%3Crect x='52' width='12' height='8' fill='%2362cdf2'/%3E%3Crect y='8' width='16' height='8' fill='%23e39b1c'/%3E%3Crect x='16' y='8' width='12' height='8' fill='%2362cdf2'/%3E%3Crect x='28' y='8' width='20' height='8' fill='%23095781'/%3E%3Crect x='48' y='8' width='16' height='8' fill='%237ad8c5'/%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Prompt',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-text-size-adjust:100%}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:600;font-size:16px;border:0;cursor:pointer;border-radius:999px;padding:13px 28px;transition:transform .18s,filter .18s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+  .btn.gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--navy);box-shadow:0 6px 18px rgba(227,155,28,.35)}
+  .btn.sm{padding:9px 20px;font-size:14px}
+  .btn.block{width:100%}
+  .btn:disabled{opacity:.6;cursor:wait;transform:none}
+
+  .nav{position:sticky;top:0;z-index:50;background:#f7f0e4;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:6px 20px;gap:16px}
+  .nav img{height:50px;width:auto}
+
+  .hero{position:relative;min-height:230px;background:#bb8d64 url(hero.jpg) 50% 88%/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;text-align:center;color:#fff}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,87,129,.15),rgba(9,87,129,.82) 70%,#095781)}
+  .hero .in{position:relative;padding:60px 20px 30px}
+  .eyebrow{display:inline-block;color:var(--gold-2);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+  .eyebrow::before,.eyebrow::after{content:"◆";font-size:9px;margin:0 10px;vertical-align:2px;opacity:.85}
+  .hero h1{font-size:clamp(28px,6vw,44px);font-weight:800;line-height:1.25}
+  .hero p{opacity:.92;font-size:15px}
+  .weave{height:16px;background:var(--weave) repeat-x;background-size:64px 16px}
+
+  main{max-width:680px;margin:0 auto;padding:36px 20px 70px}
+  .banner{border-radius:18px;padding:16px 18px;margin-bottom:22px;font-size:15px;display:none}
+  .banner.open{display:block;background:#e7f7ee;border:1px solid #b7e3c9;color:#0b5a35}
+  .banner.closed{display:block;background:#fff4e0;border:1px solid #f0cf94;color:#7a4a05;text-align:center;font-size:16px}
+  .banner.closed b{display:block;font-size:20px;margin-bottom:2px}
+  .tips{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-bottom:22px}
+  .tip{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;font-size:14px;color:var(--mute)}
+  .tip b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:2px}
+  .formcard{background:#fff;border-radius:26px;padding:clamp(22px,4vw,36px);box-shadow:0 18px 44px rgba(20,48,77,.12);border-top:6px solid var(--gold)}
+  .formcard.off{display:none}
+  label{display:block;font-size:14px;font-weight:600;margin:16px 0 5px}
+  label .req{color:#c2410c}
+  .hint{color:var(--mute);font-size:13px;font-weight:400;margin-top:3px}
+  input[type=text],input[type=tel],input[type=file]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fbfaf7;border:1.5px solid #d9d2c3;border-radius:14px;padding:12px 14px}
+  input[type=file]{background:#fff;border-style:dashed;padding:10px}
+  input:focus{border-color:var(--blue-2);background:#fff}
+  .row{display:grid;gap:0 16px;grid-template-columns:1fr 1fr}
+  .prev{display:none;margin-top:10px;max-height:200px;border-radius:12px;border:1px solid var(--line)}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:20px 0 18px;font-size:14px;background:#eef5fb;border:1px solid #c5d9ee;border-radius:14px;padding:12px 14px}
+  .consent input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--blue)}
+  .hp{position:absolute;left:-9999px;opacity:0}
+  .msg{margin-top:16px;padding:14px 16px;border-radius:14px;font-size:14.5px;display:none}
+  .msg.ok{display:block;background:#e7f7ee;color:#0b5a35;border:1px solid #b7e3c9}
+  .msg.err{display:block;background:#fdecec;color:#8f1d1d;border:1px solid #f2c1c1}
+  .msg.info{display:block;background:#eaf3fb;color:#0b4a76;border:1px solid #c5d9ee}
+  .privacy{margin-top:18px;font-size:13px;color:var(--mute);text-align:center}
+  footer{background:linear-gradient(180deg,#095781,#14304d);color:#fff;text-align:center;font-size:13px}
+  footer div{padding:26px 20px;opacity:.85}
+  @media(max-width:560px){.row,.tips{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" aria-label="กลับหน้าหลัก"><img src="logo.png" alt="เชียงตุง RUN 2027" width="77" height="50"></a>
+  <a class="btn gold sm" href="index.html">← กลับหน้าหลัก</a>
+</nav>
+
+<header class="hero">
+  <div class="in">
+    <span class="eyebrow">Border Documents</span>
+    <h1>ส่งเอกสารผ่านแดน</h1>
+    <p>รูปหน้าพาสปอร์ต + รูปถ่ายหน้าตรง สำหรับทำ Entry Visa</p>
+  </div>
+</header>
+<div class="weave" aria-hidden="true"></div>
+
+<main>
+  <div class="banner" id="banner" role="status"></div>
+
+  <div class="tips">
+    <div class="tip"><b>📘 รูปหน้าพาสปอร์ต</b>ถ่ายหน้าที่มีรูปและข้อมูลส่วนตัว ให้เห็นครบทั้งหน้า ตัวอักษรคมชัด ไม่สะท้อนแสง ไม่ตัดขอบ</div>
+    <div class="tip"><b>🙂 รูปถ่ายหน้าตรง</b>มองตรงกล้อง เห็นใบหน้าชัดเจนทั้งหน้า พื้นหลังเรียบ ไม่สวมหมวกหรือแว่นกันแดด</div>
+  </div>
+
+  <form class="formcard" id="docForm" novalidate>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="row">
+      <div>
+        <label for="bookingId">รหัสการจอง <span class="req">*</span></label>
+        <input type="text" id="bookingId" placeholder="เช่น KT0001" autocomplete="off" autocapitalize="characters" maxlength="12">
+      </div>
+      <div>
+        <label for="phone">เบอร์โทรที่ใช้จอง <span class="req">*</span></label>
+        <input type="tel" id="phone" inputmode="tel" placeholder="08x-xxx-xxxx" autocomplete="tel">
+      </div>
+    </div>
+    <p class="hint">ใช้ยืนยันตัวตน เฉพาะผู้ที่ทีมงานยืนยันสิทธิ์แล้ว (ได้รับอีเมลยืนยัน) จึงส่งเอกสารได้</p>
+
+    <label for="passport">รูปหน้าพาสปอร์ต (ไฟล์รูปภาพ)</label>
+    <input type="file" id="passport" accept="image/*">
+    <img class="prev" id="passportPrev" alt="ตัวอย่างรูปพาสปอร์ตที่เลือก">
+
+    <label for="photo">รูปถ่ายหน้าตรง (ไฟล์รูปภาพ)</label>
+    <input type="file" id="photo" accept="image/*">
+    <img class="prev" id="photoPrev" alt="ตัวอย่างรูปถ่ายที่เลือก">
+    <p class="hint">ส่งทั้งสองรายการพร้อมกันได้ หรือส่งทีละรายการก็ได้ ถ้าส่งซ้ำ ระบบจะแทนที่ไฟล์เดิม</p>
+
+    <label class="consent">
+      <input type="checkbox" id="consent">
+      <span>ข้าพเจ้ายินยอมให้ทีมงานเก็บและใช้รูปพาสปอร์ตและรูปถ่ายนี้ เพื่อดำเนินการทำเอกสารผ่านแดน/Entry Visa ของทริปนี้เท่านั้น</span>
+    </label>
+
+    <button class="btn gold block" id="submitBtn" type="submit">อัปโหลดเอกสาร</button>
+    <div class="msg" id="msg" role="alert"></div>
+  </form>
+
+  <p class="privacy">🔒 ไฟล์ถูกเก็บเป็นส่วนตัวในระบบของทีมงาน ไม่เปิดเผยต่อสาธารณะ</p>
+</main>
+
+<footer><div class="weave" aria-hidden="true"></div><div id="footer"></div></footer>
+
+<script>
+/* ⚙️ ตั้งค่า — ใส่ URL เดียวกับ SCRIPT_URL ใน index.html */
+const CONFIG = {
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbw4S_Kl_hpAeZfBdNiSX4ZRXCXtoFHMRkgV1VAD0eR5V2RsW-2wGFhLx29MrxqkynMjww/exec",
+  footer: "© 2027 Keng Tung Running Tour · Chiang Mai Running Tour"
+};
+
+const $ = id => document.getElementById(id);
+const scriptReady = () => !CONFIG.SCRIPT_URL.startsWith('PASTE_');
+const MONTHS = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+const thaiDate = ymd => { const a = ymd.split('-'); return parseInt(a[2]) + ' ' + MONTHS[parseInt(a[1]) - 1] + ' ' + (parseInt(a[0]) + 543); };
+function show(el, type, text){ el.className = 'msg' + (type ? ' ' + type : ''); el.textContent = text || ''; }
+$('footer').textContent = CONFIG.footer;
+
+/* ===== ตรวจว่าหน้านี้เปิดอยู่หรือไม่ (เซิร์ฟเวอร์ตรวจซ้ำตอนอัปโหลดเสมอ) ===== */
+async function checkWindow(){
+  const b = $('banner');
+  if (!scriptReady()) { b.className = 'banner closed'; b.innerHTML = '<b>ยังไม่ได้ตั้งค่าระบบ</b>ใส่ SCRIPT_URL ในไฟล์ documents.html (ดู README)'; $('docForm').classList.add('off'); return; }
+  try {
+    const r = await fetch(CONFIG.SCRIPT_URL + '?action=docstatus'); const d = await r.json();
+    if (!d.ok) throw new Error();
+    const range = thaiDate(d.from) + ' – ' + thaiDate(d.until);
+    if (d.open) { b.className = 'banner open'; b.textContent = '✅ เปิดรับเอกสารระหว่างวันที่ ' + range; return; }
+    $('docForm').classList.add('off');
+    b.className = 'banner closed';
+    b.innerHTML = d.today < d.from
+      ? '<b>ยังไม่เปิดให้ส่งเอกสาร</b>เปิดรับเอกสารระหว่างวันที่ ' + range
+      : '<b>ปิดรับเอกสารแล้ว</b>ช่วงส่งเอกสารคือ ' + range + ' หากยังส่งไม่ทัน กรุณาติดต่อทีมงาน';
+  } catch(_) {
+    b.className = 'banner closed'; b.innerHTML = '<b>ตรวจสอบสถานะไม่สำเร็จ</b>กรุณารีเฟรชหน้านี้หรือลองใหม่ภายหลัง';
+  }
+}
+checkWindow();
+
+/* ===== ตัวอย่างรูปที่เลือก ===== */
+function bindPreview(inputId, imgId){
+  $(inputId).addEventListener('change', e => {
+    const f = e.target.files[0], img = $(imgId);
+    if (!f) { img.style.display = 'none'; return; }
+    img.src = URL.createObjectURL(f); img.style.display = 'block';
+  });
+}
+bindPreview('passport', 'passportPrev'); bindPreview('photo', 'photoPrev');
+$('bookingId').addEventListener('input', e => { e.target.value = e.target.value.toUpperCase().replace(/\s/g, ''); });
+
+/* ===== บีบอัดรูปก่อนอัปโหลด ===== */
+function compressImage(file, maxSide, quality){
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const k = Math.min(1, maxSide / Math.max(img.width, img.height));
+      const w = Math.round(img.width * k), h = Math.round(img.height * k);
+      const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+      const ctx = cv.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); ctx.drawImage(img, 0, 0, w, h);
+      resolve(cv.toDataURL('image/jpeg', quality).split(',')[1]);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('อ่านไฟล์รูปไม่ได้ กรุณาใช้ไฟล์ JPG หรือ PNG')); };
+    img.src = url;
+  });
+}
+
+async function post(params){
+  const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 90000);
+  try {
+    const res = await fetch(CONFIG.SCRIPT_URL, {method:'POST', body:new URLSearchParams(params), signal:ctl.signal});
+    let data;
+    try { data = await res.json(); } catch(_) { throw new Error('เซิร์ฟเวอร์ตอบกลับไม่ถูกต้อง (ตรวจสอบการ Deploy: Who has access ต้องเป็น Anyone)'); }
+    if (!data.ok) throw new Error(data.error || 'เกิดข้อผิดพลาด');
+    return data;
+  } catch(e) {
+    if (e.name === 'AbortError') throw new Error('หมดเวลาเชื่อมต่อ กรุณาลองใหม่');
+    if (e instanceof TypeError) throw new Error('เชื่อมต่อเซิร์ฟเวอร์ไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่');
+    throw e;
+  } finally { clearTimeout(timer); }
+}
+
+/* ===== ส่งเอกสาร ===== */
+$('docForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const msg = $('msg'), btn = $('submitBtn');
+  const id = $('bookingId').value.trim().toUpperCase();
+  const phone = $('phone').value.trim();
+  const items = [
+    {kind:'passport', label:'รูปหน้าพาสปอร์ต', file:$('passport').files[0], side:2000, q:.85},
+    {kind:'photo',    label:'รูปถ่ายหน้าตรง',   file:$('photo').files[0],    side:1400, q:.88}
+  ].filter(i => i.file);
+
+  if (!scriptReady()) return show(msg, 'err', 'ยังไม่ได้ตั้งค่า SCRIPT_URL (ดู README)');
+  if (!/^KT\d{4,}$/.test(id)) return show(msg, 'err', 'รูปแบบรหัสจองไม่ถูกต้อง (ตัวอย่าง KT0001)');
+  if (phone.replace(/\D/g, '').length < 9) return show(msg, 'err', 'กรุณากรอกเบอร์โทรที่ใช้จอง');
+  if (!items.length) return show(msg, 'err', 'กรุณาเลือกรูปอย่างน้อย 1 รายการ');
+  for (const i of items) {
+    if (!i.file.type.startsWith('image/')) return show(msg, 'err', i.label + ' ต้องเป็นไฟล์รูปภาพ (JPG/PNG)');
+    if (i.file.size > 25 * 1024 * 1024) return show(msg, 'err', i.label + ' ไฟล์ใหญ่เกิน 25 MB');
+  }
+  if (!$('consent').checked) return show(msg, 'err', 'กรุณาติ๊กยินยอมการเก็บและใช้เอกสารก่อนส่ง');
+
+  btn.disabled = true; btn.textContent = 'กำลังอัปโหลด...';
+  const done = []; let last = null;
+  try {
+    for (let n = 0; n < items.length; n++) {
+      const i = items[n];
+      show(msg, 'info', 'กำลังอัปโหลด ' + i.label + ' (' + (n + 1) + '/' + items.length + ') กรุณารอสักครู่ อย่าปิดหน้านี้');
+      const image = await compressImage(i.file, i.side, i.q);
+      last = await post({action:'document', website:document.querySelector('[name=website]').value, bookingId:id, phone:phone, kind:i.kind, image:image, consent:'1'});
+      done.push(i.label);
+    }
+    show(msg, 'ok', '✅ ได้รับ' + done.join(' และ') + 'ของรหัส ' + id + ' แล้ว' + (last.complete ? ' — เอกสารครบทั้ง 2 รายการแล้ว ทีมงานจะดำเนินการต่อ' : ' — ยังขาดอีก 1 รายการ ส่งเพิ่มได้ในหน้านี้'));
+    $('docForm').reset(); $('passportPrev').style.display = 'none'; $('photoPrev').style.display = 'none';
+  } catch(err) {
+    show(msg, 'err', (done.length ? 'ส่ง' + done.join(' และ') + 'สำเร็จแล้ว แต่ส่งรายการถัดไปไม่สำเร็จ: ' : 'ส่งเอกสารไม่สำเร็จ: ') + err.message);
+  } finally { btn.disabled = false; btn.textContent = 'อัปโหลดเอกสาร'; }
+});
+</script>
+</body>
+</html>
