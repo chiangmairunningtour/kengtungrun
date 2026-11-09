@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running Tour 2027 | ทัวร์วิ่ง</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#0f766e;--brand-d:#115e59;--accent:#f59e0b;--ink:#1f2937;--mute:#6b7280;--bg:#f8fafc;--card:#fff;--line:#e5e7eb}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Prompt',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:12px 5%;flex-wrap:wrap;gap:8px}
+  nav .logo{font-weight:700;color:var(--brand)}
+  nav .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--accent);color:#1f2937;font-weight:600;padding:12px 26px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-weight:600;transition:.2s}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn.brand{background:var(--brand);color:#fff}
+  .btn:disabled{opacity:.6;cursor:wait;transform:none}
+  header.hero{background:linear-gradient(135deg,#0f766e,#164e63);color:#fff;text-align:center;padding:90px 5% 70px}
+  .badge{display:inline-block;background:rgba(255,255,255,.15);padding:4px 16px;border-radius:999px;font-size:13px;margin-bottom:16px}
+  .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.25;margin-bottom:12px}
+  .hero p.sub{max-width:640px;margin:0 auto 22px;opacity:.92}
+  .date{font-size:20px;font-weight:600;color:#fde68a;margin-bottom:22px}
+  .count{display:flex;justify-content:center;gap:12px;margin-bottom:28px}
+  .count div{background:rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;min-width:72px}
+  .count b{display:block;font-size:28px}
+  .count span{font-size:12px;opacity:.85}
+  section{padding:64px 5%;max-width:1100px;margin:0 auto}
+  section h2{text-align:center;font-size:clamp(22px,3.5vw,32px);margin-bottom:6px}
+  section .eyebrow{text-align:center;color:var(--brand);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  section .lead{text-align:center;color:var(--mute);margin-bottom:32px}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+  .card .ico{font-size:32px;margin-bottom:8px}
+  .card h3{font-size:17px;margin-bottom:6px}
+  .card p{color:var(--mute);font-size:14px}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px}
+  .day h3{color:var(--brand);margin-bottom:4px}
+  .day h4{margin-bottom:10px}
+  .day li{list-style:none;padding:8px 0;border-top:1px dashed var(--line);font-size:14px}
+  .day li b{color:var(--brand-d);margin-right:6px}
+  .pkg{position:relative;display:flex;flex-direction:column}
+  .pkg.featured{border:2px solid var(--accent)}
+  .pkg .tag{font-size:12px;color:var(--brand);font-weight:600}
+  .pkg .price{font-size:32px;font-weight:700;margin:10px 0}
+  .pkg .price small{font-size:14px;font-weight:400;color:var(--mute)}
+  .pkg ul{margin:8px 0 18px;padding-left:18px;color:var(--mute);font-size:14px;flex:1}
+  form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:640px;margin:0 auto}
+  label{display:block;font-size:14px;font-weight:500;margin:14px 0 4px}
+  input,select,textarea{width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:10px;font:inherit;background:#fff}
+  input:focus,select:focus{outline:2px solid var(--brand);border-color:transparent}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.row{grid-template-columns:1fr}}
+  .total{margin:20px 0;padding:14px;border-radius:12px;background:#ecfdf5;color:var(--brand-d);font-weight:600;text-align:center;font-size:18px}
+  .pay{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px;font-size:14px;margin-bottom:18px}
+  .hp{position:absolute;left:-9999px}
+  #msg{margin-top:14px;padding:14px;border-radius:10px;display:none;font-size:14px}
+  #msg.ok{display:block;background:#ecfdf5;color:#065f46}
+  #msg.err{display:block;background:#fef2f2;color:#991b1b}
+  footer{text-align:center;padding:32px 5%;color:var(--mute);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo" id="navLogo"></span>
+  <div class="links">
+    <a href="#highlights">ไฮไลท์</a><a href="#itinerary">กำหนดการ</a><a href="#packages">แพ็กเกจ & ราคา</a><a href="#booking">จองทัวร์</a><a href="#contact">ติดต่อ</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="badge" id="heroBadge"></span>
+  <h1 id="heroTitle"></h1>
+  <p class="sub" id="heroSub"></p>
+  <div class="date" id="heroDate"></div>
+  <div class="count" id="count">
+    <div><b id="cd">0</b><span>วัน</span></div>
+    <div><b id="ch">0</b><span>ชั่วโมง</span></div>
+    <div><b id="cm">0</b><span>นาที</span></div>
+    <div><b id="cs">0</b><span>วินาที</span></div>
+  </div>
+  <a class="btn" href="#booking">จองทัวร์ทันที</a>
+</header>
+
+<section id="highlights">
+  <p class="eyebrow">Highlights</p>
+  <h2>ไฮไลท์ประจำทริป</h2>
+  <p class="lead">&nbsp;</p>
+  <div class="grid" id="hlGrid"></div>
+</section>
+
+<section id="itinerary">
+  <p class="eyebrow">Itinerary</p>
+  <h2>กำหนดการอย่างละเอียด</h2>
+  <p class="lead" id="itLead"></p>
+  <div id="days"></div>
+</section>
+
+<section id="packages">
+  <p class="eyebrow">Packages</p>
+  <h2>แพ็กเกจ & ราคา</h2>
+  <p class="lead">เลือกแพ็กเกจที่เหมาะกับคุณ</p>
+  <div class="grid" id="pkgGrid"></div>
+</section>
+
+<section id="booking">
+  <p class="eyebrow">Booking</p>
+  <h2>แบบฟอร์มสำรองที่นั่ง</h2>
+  <p class="lead" id="bkLead"></p>
+  <form id="form" novalidate>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <label for="package">เลือกแพ็กเกจ *</label>
+    <select id="package" name="package" required></select>
+
+    <label for="name">ชื่อ - นามสกุล *</label>
+    <input id="name" name="name" required autocomplete="name">
+
+    <div class="row">
+      <div><label for="phone">เบอร์โทรศัพท์ *</label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="08x-xxx-xxxx"></div>
+      <div><label for="email">อีเมล</label>
+        <input id="email" name="email" type="email" autocomplete="email"></div>
+    </div>
+
+    <div id="idWrap">
+      <label for="idcard">เลขบัตรประชาชน (ใช้ทำเอกสารผ่านด่าน) *</label>
+      <input id="idcard" name="idcard" inputmode="numeric" maxlength="13" placeholder="13 หลัก">
+    </div>
+
+    <div class="row">
+      <div><label for="people">จำนวนผู้เดินทาง *</label>
+        <input id="people" name="people" type="number" min="1" max="20" value="1" required></div>
+      <div><label for="size">ไซส์เสื้อ *</label>
+        <select id="size" name="size" required></select></div>
+    </div>
+
+    <label for="note">หมายเหตุ</label>
+    <textarea id="note" name="note" rows="2" placeholder="เช่น แพ้อาหาร, ขอพักห้องเดียวกับ..."></textarea>
+
+    <div class="total" id="total"></div>
+    <div class="pay" id="payBox"></div>
+
+    <button class="btn brand" id="submitBtn" type="submit" style="width:100%">ยืนยันส่งข้อมูลจองทัวร์</button>
+    <div id="msg" role="status"></div>
+  </form>
+</section>
+
+<section id="contact" style="text-align:center">
+  <p class="eyebrow">Contact</p>
+  <h2>ติดต่อสอบถาม</h2>
+  <p class="lead" id="contactText"></p>
+  <div id="contactBtns"></div>
+</section>
+
+<footer id="footer"></footer>
+
+<script>
+/* ================================================================
+   ⚙️  ตั้งค่าทุกอย่างที่นี่ที่เดียว — แก้เนื้อหาเว็บได้โดยไม่ต้องแตะโค้ดส่วนอื่น
+   ================================================================ */
+const CONFIG = {
+  // 1) วาง URL ของ Apps Script Web App (ลงท้ายด้วย /exec) หลังทำตามขั้นตอนใน README
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwfSX7bMfv0VfHunwZ5vBLtdTpQ8WRvRXTlrEHZU9DeuKeIVYbC8zrdWBPI-VkoNIAOZg/exec",
+
+  brand: "Northern Trail Run 2027",
+  badge: "เปิดรับสมัครแล้ว • จำนวนจำกัด",
+  title: "วิ่งสัมผัสเสน่ห์เมืองเหนือ Northern Trail Run 2027",
+  subtitle: "ทริปวิ่งสบาย ๆ ชมวิวหลักร้อยล้าน อากาศเย็น พร้อมทีมงานดูแลตลอดเส้นทาง",
+  dateText: "8 - 10 มกราคม 2570",
+  tripStart: "2027-01-08T08:30:00+07:00",   // ใช้นับถอยหลัง
+  itineraryLead: "3 วัน 2 คืน | ตัวอย่างเส้นทาง — แก้ไขได้",
+
+  highlights: [
+    {ico:"🏃", t:"วิ่งชมเมือง",       d:"City Run ระยะชิลล์ ๆ ท่ามกลางลมเย็นและวิวทะเลสาบ"},
+    {ico:"🌅", t:"บรรยากาศยามเย็น",    d:"ชมแสงอาทิตย์ลับขอบฟ้าสะท้อนผิวน้ำ"},
+    {ico:"🌸", t:"ชมดอกไม้ฤดูหนาว",    d:"ซากุระเมืองไทยบานสะพรั่งต้อนรับลมหนาว"},
+    {ico:"🛕", t:"สักการะสถานที่ศักดิ์สิทธิ์", d:"เสริมสิริมงคลต้อนรับปีใหม่"}
+  ],
+
+  itinerary: [
+    {day:"DAY 1 — 8 ม.ค. 2570", title:"เดินทาง & เช็คอิน", items:[
+      ["08:30 - 09:00","รวมพล ณ จุดนัดพบ ตรวจเอกสาร"],
+      ["09:00 - 13:30","เดินทางด้วยรถตู้ VIP ชมทิวทัศน์ระหว่างทาง"],
+      ["16:30 - 18:00","เช็คอินโรงแรมที่พัก"],
+      ["18:30","อาหารค่ำพื้นเมือง"]
+    ]},
+    {day:"DAY 2 — 9 ม.ค. 2570", title:"Morning Run & ท่องเที่ยวรอบเมือง", items:[
+      ["05:30 - 07:30","Morning Run วิ่งรับอรุณ"],
+      ["09:00 - 12:00","จุดชมวิวและแลนด์มาร์คสำคัญ"],
+      ["16:30 - 18:00","Sunset Run พร้อมชมรมวิ่งท้องถิ่น"],
+      ["19:00","อาหารค่ำ พร้อมมอบของที่ระลึก"]
+    ]},
+    {day:"DAY 3 — 10 ม.ค. 2570", title:"ตลาดเช้า ช้อปปิ้ง & เดินทางกลับ", items:[
+      ["06:30 - 08:30","เดินชมตลาดเช้า ชิมของพื้นเมือง"],
+      ["09:00 - 10:30","เลือกซื้อของฝาก"],
+      ["11:00","ออกเดินทางกลับ"],
+      ["15:00 - 16:30","ถึงจุดหมายโดยสวัสดิภาพ"]
+    ]}
+  ],
+
+  packages: [
+    {id:"standard", name:"Standard Runner", tag:"แพ็กเกจนักวิ่งทั่วไป", price:5500, unit:"ท่าน",
+     inc:["พักห้องคู่ (Twin) 2 เตียง","ค่าธรรมเนียมผ่านด่าน","รถตู้ปรับอากาศ","เสื้อวิ่งประจำทริป","ไกด์ท้องถิ่น","อาหารเช้าโรงแรม + ของที่ระลึก"],
+     exc:"ไม่รวมอาหารเที่ยงและเย็น"},
+    {id:"vip", name:"VIP Exclusive", tag:"แพ็กเกจ VIP", price:6500, unit:"ท่าน", featured:true,
+     inc:["พักห้องเดี่ยว (Single)","ค่าธรรมเนียมผ่านด่าน","รถตู้ปรับอากาศ","เสื้อวิ่งประจำทริป","ไกด์ท้องถิ่น","อาหารเช้าโรงแรม + ของที่ระลึก"],
+     exc:"ไม่รวมอาหารเที่ยงและเย็น"}
+  ],
+
+  sizes: ["S (รอบอก 36\")","M (รอบอก 38\")","L (รอบอก 40\")","XL (รอบอก 42\")","2XL (รอบอก 44\")"],
+  askIdCard: true,       // ตั้ง false ถ้าไม่ต้องการเก็บเลขบัตรประชาชน (แนะนำให้เก็บเฉพาะที่จำเป็น)
+
+  payment: {
+    bank: "ธนาคาร ○○○○", account: "xxx-x-xxxxx-x", holder: "ชื่อบัญชีของคุณ",
+    terms: "กรุณาโอนชำระภายใน 3 วันนับจากวันที่จอง และส่งสลิปทางช่องทางติดต่อด้านล่างเพื่อยืนยันสิทธิ์"
+  },
+
+  contact: {
+    phone: "0800000000", phoneText: "โทร 080-000-0000",
+    facebook: "https://www.facebook.com/",     // ลิงก์เพจ
+    line: "",                                   // เช่น https://line.me/ti/p/@yourid (เว้นว่างได้)
+    hours: "เวลาทำการ 08:30 - 18:00 น."
+  },
+  footer: "© 2027 Northern Trail Run. All rights reserved."
+};
+
+/* ================= render ================= */
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString('th-TH');
+
+$('navLogo').textContent = CONFIG.brand;
+$('heroBadge').textContent = CONFIG.badge;
+$('heroTitle').textContent = CONFIG.title;
+$('heroSub').textContent = CONFIG.subtitle;
+$('heroDate').textContent = CONFIG.dateText;
+$('itLead').textContent = CONFIG.itineraryLead;
+$('bkLead').textContent = "ทริป " + CONFIG.brand + " (" + CONFIG.dateText + ")";
+$('footer').textContent = CONFIG.footer;
+document.title = CONFIG.brand;
+
+$('hlGrid').innerHTML = CONFIG.highlights.map(h =>
+  `<div class="card"><div class="ico">${h.ico}</div><h3>${h.t}</h3><p>${h.d}</p></div>`).join('');
+
+$('days').innerHTML = CONFIG.itinerary.map(d =>
+  `<div class="day"><h3>${d.day}</h3><h4>${d.title}</h4><ul>${
+    d.items.map(i=>`<li><b>${i[0]} น.</b>${i[1]}</li>`).join('')}</ul></div>`).join('');
+
+$('pkgGrid').innerHTML = CONFIG.packages.map(p =>
+  `<div class="card pkg ${p.featured?'featured':''}">
+     <span class="tag">${p.name}</span><h3>${p.tag}</h3>
+     <div class="price">${fmt(p.price)} <small>บาท / ${p.unit}</small></div>
+     <ul>${p.inc.map(x=>`<li>${x}</li>`).join('')}<li><i>${p.exc}</i></li></ul>
+     <a class="btn ${p.featured?'':'brand'}" href="#booking" data-pkg="${p.id}">เลือกแพ็กเกจนี้</a>
+   </div>`).join('');
+
+$('package').innerHTML = CONFIG.packages.map(p =>
+  `<option value="${p.id}">${p.name} (${fmt(p.price)} บาท/${p.unit})</option>`).join('');
+$('size').innerHTML = CONFIG.sizes.map(s=>`<option>${s}</option>`).join('');
+
+const pay = CONFIG.payment;
+$('payBox').innerHTML = `<b>ช่องทางชำระเงิน</b><br>${pay.bank} ${pay.account}<br>ชื่อบัญชี: ${pay.holder}<br><br>${pay.terms}`;
+
+const c = CONFIG.contact;
+$('contactText').textContent = c.hours;
+$('contactBtns').innerHTML =
+  `<a class="btn brand" href="tel:${c.phone}">${c.phoneText}</a> ` +
+  (c.facebook ? `<a class="btn" href="${c.facebook}" target="_blank" rel="noopener">Facebook</a> ` : '') +
+  (c.line ? `<a class="btn" href="${c.line}" target="_blank" rel="noopener">LINE</a>` : '');
+
+if(!CONFIG.askIdCard) $('idWrap').style.display='none';
+
+document.querySelectorAll('[data-pkg]').forEach(a => a.addEventListener('click', () => {
+  $('package').value = a.dataset.pkg; updateTotal();
+}));
+
+/* ================= total ================= */
+function updateTotal(){
+  const p = CONFIG.packages.find(x=>x.id===$('package').value);
+  const n = Math.max(1, parseInt($('people').value)||1);
+  $('total').textContent = "ยอดรวมทั้งสิ้น " + fmt(p.price*n) + " บาท";
+}
+$('package').addEventListener('change', updateTotal);
+$('people').addEventListener('input', updateTotal);
+updateTotal();
+
+/* ================= countdown ================= */
+const target = new Date(CONFIG.tripStart).getTime();
+function tick(){
+  let d = Math.max(0, target - Date.now());
+  $('cd').textContent = Math.floor(d/864e5);
+  $('ch').textContent = Math.floor(d%864e5/36e5);
+  $('cm').textContent = Math.floor(d%36e5/6e4);
+  $('cs').textContent = Math.floor(d%6e4/1e3);
+}
+tick(); setInterval(tick, 1000);
+
+/* ================= submit ================= */
+const msg = $('msg');
+function show(type, text){ msg.className = type; msg.textContent = text; }
+
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target;
+  if(!f.name.value.trim()) return show('err','กรุณากรอกชื่อ - นามสกุล');
+  if(!/^0\d{8,9}$/.test(f.phone.value.replace(/[-\s]/g,''))) return show('err','เบอร์โทรศัพท์ไม่ถูกต้อง');
+  if(CONFIG.askIdCard && !/^\d{13}$/.test(f.idcard.value.trim())) return show('err','เลขบัตรประชาชนต้องเป็นตัวเลข 13 หลัก');
+  if(CONFIG.SCRIPT_URL.startsWith('PASTE_')) return show('err','ยังไม่ได้ตั้งค่า SCRIPT_URL (ดู README)');
+
+  const btn = $('submitBtn'); btn.disabled = true; btn.textContent = 'กำลังส่งข้อมูล...';
+  show('', ''); msg.style.display='none';
+  try{
+    const body = new URLSearchParams(new FormData(f));
+    const res = await fetch(CONFIG.SCRIPT_URL, {method:'POST', body});
+    const data = await res.json();
+    if(!data.ok) throw new Error(data.error || 'เกิดข้อผิดพลาด');
+    show('ok', `✅ บันทึกการจองเรียบร้อย! รหัสการจอง: ${data.id} | ยอดชำระ ${fmt(data.total)} บาท — กรุณาโอนและส่งสลิปภายใน 3 วัน`);
+    f.reset(); updateTotal();
+  }catch(err){
+    show('err', 'ส่งข้อมูลไม่สำเร็จ: ' + err.message + ' — กรุณาลองใหม่หรือติดต่อทีมงานโดยตรง');
+  }finally{
+    btn.disabled = false; btn.textContent = 'ยืนยันส่งข้อมูลจองทัวร์';
+  }
+});
+</script>
+</body>
+</html>
