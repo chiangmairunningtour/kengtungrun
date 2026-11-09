@@ -3,286 +3,510 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Running Tour 2027 | ทัวร์วิ่ง</title>
+<meta name="theme-color" content="#14304d">
+<meta name="description" content="ณ เชียงตุง RUN 2027 — ทัวร์วิ่งรอบหนองตุง 3 วัน 2 คืน 8-10 มกราคม 2570 จองทัวร์และแจ้งชำระเงินออนไลน์">
+<title>เชียงตุง RUN 2027 | Keng Tung Running Tour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-  :root{--brand:#0f766e;--brand-d:#115e59;--accent:#f59e0b;--ink:#1f2937;--mute:#6b7280;--bg:#f8fafc;--card:#fff;--line:#e5e7eb}
+  :root{
+    --navy:#14304d; --navy-2:#0c3b63; --blue:#095781; --blue-2:#0f6a96;
+    --gold:#e39b1c; --gold-2:#f6c85f; --orange:#f7a21b;
+    --cream:#f8f1e5; --sky:#c9d9f4; --cyan:#62cdf2; --mint:#7ad8c5;
+    --ink:#14304d; --mute:#5d6f84; --line:#e5dccb; --card:#fff;
+    --weave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='16'%3E%3Crect width='8' height='8' fill='%237ad8c5'/%3E%3Crect x='8' width='16' height='8' fill='%2362cdf2'/%3E%3Crect x='24' width='16' height='8' fill='%23095781'/%3E%3Crect x='40' width='12' height='8' fill='%23e39b1c'/%3E%3Crect x='52' width='12' height='8' fill='%2362cdf2'/%3E%3Crect y='8' width='16' height='8' fill='%23e39b1c'/%3E%3Crect x='16' y='8' width='12' height='8' fill='%2362cdf2'/%3E%3Crect x='28' y='8' width='20' height='8' fill='%23095781'/%3E%3Crect x='48' y='8' width='16' height='8' fill='%237ad8c5'/%3E%3C/svg%3E");
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Prompt',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  html{scroll-behavior:smooth;scroll-padding-top:110px}
+  body{font-family:'Prompt',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-text-size-adjust:100%}
+  img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
-  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:12px 5%;flex-wrap:wrap;gap:8px}
-  nav .logo{font-weight:700;color:var(--brand)}
-  nav .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
-  .btn{display:inline-block;background:var(--accent);color:#1f2937;font-weight:600;padding:12px 26px;border-radius:999px;border:0;cursor:pointer;font:inherit;font-weight:600;transition:.2s}
-  .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
-  .btn.brand{background:var(--brand);color:#fff}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:600;font-size:16px;border:0;cursor:pointer;border-radius:999px;padding:13px 28px;transition:transform .18s,box-shadow .18s,filter .18s;text-align:center}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+  .btn.gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--navy);box-shadow:0 6px 18px rgba(227,155,28,.35)}
+  .btn.navy{background:var(--navy);color:#fff;box-shadow:0 6px 18px rgba(20,48,77,.25)}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+  .btn.sm{padding:9px 20px;font-size:14px}
+  .btn.block{width:100%}
   .btn:disabled{opacity:.6;cursor:wait;transform:none}
-  header.hero{background:linear-gradient(135deg,#0f766e,#164e63);color:#fff;text-align:center;padding:90px 5% 70px}
-  .badge{display:inline-block;background:rgba(255,255,255,.15);padding:4px 16px;border-radius:999px;font-size:13px;margin-bottom:16px}
-  .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.25;margin-bottom:12px}
-  .hero p.sub{max-width:640px;margin:0 auto 22px;opacity:.92}
-  .date{font-size:20px;font-weight:600;color:#fde68a;margin-bottom:22px}
-  .count{display:flex;justify-content:center;gap:12px;margin-bottom:28px}
-  .count div{background:rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;min-width:72px}
-  .count b{display:block;font-size:28px}
+
+  /* ---------- nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:#f7f0e4;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:6px 20px 0;gap:0 16px}
+  .brand img{height:50px;width:auto}
+  .nav .btn{order:2}
+  .nav-links{order:3;width:100%;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:2px 0 8px}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap;font-size:14px;font-weight:500;padding:6px 12px;border-radius:999px;color:var(--navy)}
+  .nav-links a:hover{background:rgba(227,155,28,.18)}
+  @media(min-width:900px){
+    .nav{flex-wrap:nowrap;padding:6px 5%}
+    .nav-links{order:2;width:auto;padding:0;overflow:visible}
+    .nav .btn{order:3}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;background:#bb8d64;overflow:hidden}
+  .hero img{width:100%;height:auto;max-height:80vh;object-fit:cover;object-position:50% 35%}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(to bottom,rgba(9,87,129,0),rgba(9,87,129,.72) 66%,#095781)}
+  .intro{background:linear-gradient(180deg,#095781 0%,#0b4a76 45%,#14304d 100%);color:#fff;text-align:center;padding:6px 20px 64px}
+  .intro .l1{font-size:clamp(20px,3.4vw,30px);font-weight:600}
+  .intro .l2{font-size:clamp(17px,2.8vw,24px);opacity:.95}
+  .intro .l3{font-size:clamp(17px,2.8vw,24px);font-weight:600;color:var(--gold-2);margin-top:6px}
+  .intro .date{font-size:clamp(34px,7vw,66px);font-weight:800;color:var(--orange);line-height:1.15;margin:12px 0 6px;letter-spacing:.5px}
+  .intro .season{font-size:14px;opacity:.85;margin-bottom:26px}
+  .count{display:flex;justify-content:center;gap:10px;margin-bottom:30px}
+  .count div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:10px 6px;min-width:74px}
+  .count b{display:block;font-size:30px;line-height:1.2;font-weight:700;color:var(--gold-2);font-variant-numeric:tabular-nums}
   .count span{font-size:12px;opacity:.85}
-  section{padding:64px 5%;max-width:1100px;margin:0 auto}
-  section h2{text-align:center;font-size:clamp(22px,3.5vw,32px);margin-bottom:6px}
-  section .eyebrow{text-align:center;color:var(--brand);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-  section .lead{text-align:center;color:var(--mute);margin-bottom:32px}
-  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
-  .card .ico{font-size:32px;margin-bottom:8px}
-  .card h3{font-size:17px;margin-bottom:6px}
-  .card p{color:var(--mute);font-size:14px}
-  .day{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px}
-  .day h3{color:var(--brand);margin-bottom:4px}
-  .day h4{margin-bottom:10px}
-  .day li{list-style:none;padding:8px 0;border-top:1px dashed var(--line);font-size:14px}
-  .day li b{color:var(--brand-d);margin-right:6px}
-  .pkg{position:relative;display:flex;flex-direction:column}
-  .pkg.featured{border:2px solid var(--accent)}
-  .pkg .tag{font-size:12px;color:var(--brand);font-weight:600}
-  .pkg .price{font-size:32px;font-weight:700;margin:10px 0}
-  .pkg .price small{font-size:14px;font-weight:400;color:var(--mute)}
-  .pkg ul{margin:8px 0 18px;padding-left:18px;color:var(--mute);font-size:14px;flex:1}
-  form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:640px;margin:0 auto}
-  label{display:block;font-size:14px;font-weight:500;margin:14px 0 4px}
-  input,select,textarea{width:100%;padding:11px 14px;border:1px solid #d1d5db;border-radius:10px;font:inherit;background:#fff}
-  input:focus,select:focus{outline:2px solid var(--brand);border-color:transparent}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:560px){.row{grid-template-columns:1fr}}
-  .total{margin:20px 0;padding:14px;border-radius:12px;background:#ecfdf5;color:var(--brand-d);font-weight:600;text-align:center;font-size:18px}
-  .pay{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px;font-size:14px;margin-bottom:18px}
-  .hp{position:absolute;left:-9999px}
-  #msg{margin-top:14px;padding:14px;border-radius:10px;display:none;font-size:14px}
-  #msg.ok{display:block;background:#ecfdf5;color:#065f46}
-  #msg.err{display:block;background:#fef2f2;color:#991b1b}
-  footer{text-align:center;padding:32px 5%;color:var(--mute);font-size:13px;border-top:1px solid var(--line)}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .weave{height:16px;background:var(--weave) repeat-x;background-size:64px 16px}
+
+  /* ---------- sections ---------- */
+  section.block{padding:72px 0}
+  .sec-head{text-align:center;margin-bottom:38px}
+  .eyebrow{display:inline-block;color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+  .eyebrow::before,.eyebrow::after{content:"◆";font-size:9px;margin:0 10px;vertical-align:2px;opacity:.8}
+  .sec-head h2{font-size:clamp(26px,4.4vw,40px);font-weight:800;line-height:1.25;margin-top:4px;color:var(--navy)}
+  .sec-head .sub{color:var(--blue-2);font-weight:700;font-size:clamp(18px,2.6vw,24px);margin-top:2px}
+  .on-dark .sec-head h2{color:#fff}
+  .on-dark .sec-head .sub{color:var(--cyan)}
+
+  /* highlights */
+  .hl-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .hl{background:#fff;border-radius:22px;padding:26px 22px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(20,48,77,.06);position:relative;overflow:hidden}
+  .hl::before{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:linear-gradient(90deg,var(--gold),var(--gold-2),var(--cyan))}
+  .hl .ico{font-size:34px;line-height:1;margin-bottom:12px}
+  .hl h3{font-size:18px;font-weight:700;margin-bottom:4px}
+  .hl p{color:var(--mute);font-size:14.5px}
+
+  /* itinerary */
+  #itinerary{background:linear-gradient(180deg,var(--cream) 0%,#dfe8f7 40%,#b7cdef 100%)}
+  .day{display:grid;grid-template-columns:130px 1fr;gap:6px 22px;margin-bottom:38px}
+  .day-label b{display:block;color:var(--gold);font-size:30px;font-weight:800;line-height:1.05}
+  .day-label span{font-size:22px;font-weight:700;color:var(--navy)}
+  .day-body h3{font-size:clamp(17px,2.4vw,21px);font-weight:700;line-height:1.4;margin-bottom:10px}
+  .tl{list-style:none;--tc:78px;--g:34px}
+  .tl li{position:relative;display:grid;grid-template-columns:var(--tc) 1fr;column-gap:var(--g);padding:8px 0}
+  .tl li::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--tc) + var(--g)/2 - 1px);width:2px;background:var(--gold)}
+  .tl li::after{content:"";position:absolute;top:19px;left:calc(var(--tc) + var(--g)/2 - 6px);width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(227,155,28,.22)}
+  .tl li:first-child::before{top:19px}
+  .tl li:last-child::before{bottom:calc(100% - 25px)}
+  .tl time{text-align:right;font-weight:600;color:var(--navy);font-variant-numeric:tabular-nums;font-size:15px;padding-top:2px}
+  .tl p{font-size:15px}
+  .chip{display:inline-block;background:#d9bf9c;color:var(--navy);font-weight:600;border-radius:10px;padding:0 10px;margin-right:4px}
+  .note-box{background:var(--navy);color:#fff;border-radius:22px 22px 0 0;padding:22px 26px;display:flex;gap:12px;font-size:15px;margin-top:10px}
+  .note-box .star{color:var(--gold);font-size:22px;line-height:1.3}
+  .note-box em{color:var(--gold-2);font-style:italic}
+  .fb-bar{display:block;background:var(--gold);color:var(--navy);font-weight:700;text-align:center;padding:16px 20px;border-radius:0 0 22px 22px;font-size:clamp(16px,2.4vw,21px)}
+  .fb-bar:hover{filter:brightness(1.06)}
+
+  /* packages */
+  #packages{background:linear-gradient(180deg,#2a7596 0%,#095781 38%,#0c3b63 100%);color:#fff;position:relative}
+  .pkg-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));max-width:900px;margin:0 auto}
+  .pkg{display:flex;flex-direction:column}
+  .pricebox{border-radius:26px;text-align:center;padding:26px 16px 22px;box-shadow:0 14px 34px rgba(0,0,0,.28)}
+  .pricebox h3{font-size:clamp(20px,3vw,26px);font-weight:600;line-height:1.3}
+  .pricebox .price{font-size:clamp(52px,9vw,72px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+  .pricebox .unit{font-size:20px;font-weight:500}
+  .pkg.navy .pricebox{background:var(--navy);color:#fff}
+  .pkg.navy .price{color:var(--orange)}
+  .pkg.gold .pricebox{background:linear-gradient(135deg,#b78a2c 0%,#f1de9a 38%,#f7edbb 52%,#e6bc54 74%,#a8741f 100%);color:var(--navy)}
+  .checks{list-style:none;margin:24px 6px 22px;flex:1}
+  .checks li{position:relative;padding:5px 0 5px 40px;font-size:17px;line-height:1.5}
+  .checks li::before{content:"";position:absolute;left:4px;top:11px;width:22px;height:12px;border-left:5px solid var(--orange);border-bottom:5px solid var(--orange);transform:rotate(-48deg) scale(.9);transform-origin:center}
+  .pkg-note{text-align:center;font-style:italic;margin-top:30px;font-size:17px;opacity:.95}
+  .pkg .btn{align-self:center}
+
+  /* forms */
+  #booking{background:var(--cream)}
+  #payment{background:linear-gradient(180deg,#e8eefa,#c9d9f4)}
+  .formcard{background:#fff;border-radius:26px;padding:clamp(22px,4vw,38px);max-width:680px;margin:0 auto;box-shadow:0 18px 44px rgba(20,48,77,.12);border-top:6px solid var(--gold)}
+  .formcard h3{font-size:20px;font-weight:700;margin-bottom:2px}
+  .formcard .hint{color:var(--mute);font-size:14px;margin-bottom:6px}
+  label{display:block;font-size:14px;font-weight:600;margin:16px 0 5px}
+  label .req{color:#c2410c}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fbfaf7;border:1.5px solid #d9d2c3;border-radius:14px;padding:12px 14px}
+  input:focus,select:focus,textarea:focus{border-color:var(--blue-2);background:#fff}
+  input[type=file]{padding:10px;background:#fff;border-style:dashed}
+  .row{display:grid;gap:0 16px;grid-template-columns:1fr 1fr}
+  .total{margin:22px 0 4px;padding:14px;border-radius:16px;background:linear-gradient(135deg,#fff4d9,#fde7ad);color:var(--navy);font-weight:700;text-align:center;font-size:20px}
+  .paybox{background:#eef5fb;border:1px solid #c5d9ee;border-radius:16px;padding:16px 18px;font-size:14.5px;margin:18px 0}
+  .paybox b{color:var(--navy)}
+  .paybox .acct{font-size:20px;font-weight:700;letter-spacing:.5px;color:var(--blue)}
+  .hp{position:absolute;left:-9999px;opacity:0}
+  .msg{margin-top:16px;padding:14px 16px;border-radius:14px;font-size:14.5px;display:none}
+  .msg.ok{display:block;background:#e7f7ee;color:#0b5a35;border:1px solid #b7e3c9}
+  .msg.err{display:block;background:#fdecec;color:#8f1d1d;border:1px solid #f2c1c1}
+  .msg.info{display:block;background:#eaf3fb;color:#0b4a76;border:1px solid #c5d9ee}
+  .result{display:none;text-align:center;background:linear-gradient(135deg,#fff8e6,#fff);border:2px solid var(--gold-2);border-radius:22px;padding:24px 18px;margin-bottom:22px}
+  .result.show{display:block}
+  .result .code{font-size:clamp(34px,8vw,48px);font-weight:800;letter-spacing:3px;color:var(--blue);line-height:1.2}
+  .result .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  .steps{max-width:680px;margin:0 auto 26px;display:grid;gap:10px;grid-template-columns:repeat(3,1fr);text-align:center;font-size:13.5px}
+  .steps div{background:rgba(255,255,255,.7);border-radius:16px;padding:12px 8px}
+  .steps b{display:block;color:var(--gold);font-size:22px;line-height:1.1}
+  #slipPrev{display:none;margin-top:10px;max-height:220px;border-radius:12px;border:1px solid var(--line)}
+
+  /* posters */
+  .posters{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .posters a{display:block;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(20,48,77,.18);transition:transform .2s}
+  .posters a:hover{transform:translateY(-4px)}
+
+  /* footer */
+  footer{background:linear-gradient(180deg,#095781,#14304d);color:#fff;text-align:center}
+  footer .inner{padding:54px 20px 30px}
+  footer h2{font-size:clamp(22px,3.6vw,30px);font-weight:800}
+  footer .hours{opacity:.85;margin:4px 0 20px;font-size:14.5px}
+  footer .contact-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+  .partners{display:inline-block;background:#095781;border-radius:18px;padding:8px 14px}
+  .partners img{width:min(420px,78vw);height:auto;mix-blend-mode:normal}
+  footer small{display:block;margin-top:22px;opacity:.7;font-size:13px}
+
+  @media(max-width:640px){
+    section.block{padding:54px 0}
+    .day{grid-template-columns:1fr;gap:2px}
+    .day-label{display:flex;align-items:baseline;gap:10px}
+    .day-label b{font-size:26px}.day-label span{font-size:18px}
+    .tl{--tc:62px;--g:26px}
+    .row{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .count div{min-width:64px}.count b{font-size:24px}
+    .checks li{font-size:16px}
+  }
 </style>
 </head>
 <body>
 
-<nav>
-  <span class="logo" id="navLogo"></span>
-  <div class="links">
-    <a href="#highlights">ไฮไลท์</a><a href="#itinerary">กำหนดการ</a><a href="#packages">แพ็กเกจ & ราคา</a><a href="#booking">จองทัวร์</a><a href="#contact">ติดต่อ</a>
+<nav class="nav" aria-label="เมนูหลัก">
+  <a class="brand" href="#top" aria-label="เชียงตุง RUN 2027"><img src="logo.png" alt="เชียงตุง RUN 2027" width="77" height="50"></a>
+  <div class="nav-links">
+    <a href="#highlights">ไฮไลท์ทัวร์</a>
+    <a href="#itinerary">กำหนดการ 3 วัน 2 คืน</a>
+    <a href="#packages">แพ็กเกจ & ราคา</a>
+    <a href="#booking">จองทัวร์</a>
+    <a href="#payment">แจ้งชำระเงิน</a>
+    <a href="#posters">โปสเตอร์</a>
+    <a href="#contact">ติดต่อเรา</a>
   </div>
+  <a class="btn gold sm" href="#booking">จองทัวร์ด่วน</a>
 </nav>
 
-<header class="hero">
-  <span class="badge" id="heroBadge"></span>
-  <h1 id="heroTitle"></h1>
-  <p class="sub" id="heroSub"></p>
-  <div class="date" id="heroDate"></div>
-  <div class="count" id="count">
+<header class="hero" id="top">
+  <img src="hero.jpg" alt="วิ่งชมเมืองรอบหนองตุง ยามเย็นเมืองเชียงตุง — เชียงตุง RUN 2027, 8-10 มกราคม 2570" width="1800" height="1072" fetchpriority="high">
+  <h1 class="sr" id="h1"></h1>
+</header>
+
+<section class="intro">
+  <p class="l1" id="tag1"></p>
+  <p class="l2" id="tag2"></p>
+  <p class="l3" id="tag3"></p>
+  <div class="date" id="dateText"></div>
+  <div class="season" id="seasonText"></div>
+  <div class="count" id="count" aria-label="นับถอยหลังสู่การเดินทาง">
     <div><b id="cd">0</b><span>วัน</span></div>
     <div><b id="ch">0</b><span>ชั่วโมง</span></div>
     <div><b id="cm">0</b><span>นาที</span></div>
     <div><b id="cs">0</b><span>วินาที</span></div>
   </div>
-  <a class="btn" href="#booking">จองทัวร์ทันที</a>
-</header>
+  <div class="cta-row">
+    <a class="btn gold" href="#booking">จองแพ็กเกจทัวร์วิ่งทันที</a>
+    <a class="btn ghost" href="#packages">ดูแพ็กเกจ & ราคา</a>
+  </div>
+</section>
+<!--<div class="weave" aria-hidden="true"></div>-->
 
-<section id="highlights">
-  <p class="eyebrow">Highlights</p>
-  <h2>ไฮไลท์ประจำทริป</h2>
-  <p class="lead">&nbsp;</p>
-  <div class="grid" id="hlGrid"></div>
+<section class="block" id="highlights">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Exclusive Highlights</span><h2>ไฮไลท์สุดพิเศษประจำทริป</h2></div>
+    <div class="hl-grid" id="hlGrid"></div>
+  </div>
 </section>
 
-<section id="itinerary">
-  <p class="eyebrow">Itinerary</p>
-  <h2>กำหนดการอย่างละเอียด</h2>
-  <p class="lead" id="itLead"></p>
-  <div id="days"></div>
+<section class="block" id="itinerary">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Trip Itinerary</span><h2>กำหนดการทัวร์วิ่ง 3 วัน 2 คืน</h2><p class="sub" id="itSub"></p></div>
+    <div id="days"></div>
+    <div class="note-box"><span class="star">✱</span><div id="tripNote"></div></div>
+    <a class="fb-bar" id="fbBar" target="_blank" rel="noopener"></a>
+  </div>
 </section>
 
-<section id="packages">
-  <p class="eyebrow">Packages</p>
-  <h2>แพ็กเกจ & ราคา</h2>
-  <p class="lead">เลือกแพ็กเกจที่เหมาะกับคุณ</p>
-  <div class="grid" id="pkgGrid"></div>
+<section class="block on-dark" id="packages">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Packages & Pricing</span><h2>แพ็กเกจทัวร์วิ่ง</h2><p class="sub" id="pkSub"></p></div>
+    <div class="pkg-grid" id="pkgGrid"></div>
+    <p class="pkg-note" id="pkgNote"></p>
+  </div>
 </section>
+<!--<div class="weave" aria-hidden="true"></div>-->
 
-<section id="booking">
-  <p class="eyebrow">Booking</p>
-  <h2>แบบฟอร์มสำรองที่นั่ง</h2>
-  <p class="lead" id="bkLead"></p>
-  <form id="form" novalidate>
-    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<section class="block" id="booking">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Booking</span><h2>แบบฟอร์มสำหรับจอง</h2><p class="sub" id="bkSub"></p></div>
 
-    <label for="package">เลือกแพ็กเกจ *</label>
-    <select id="package" name="package" required></select>
-
-    <label for="name">ชื่อ - นามสกุล *</label>
-    <input id="name" name="name" required autocomplete="name">
-
-    <div class="row">
-      <div><label for="phone">เบอร์โทรศัพท์ *</label>
-        <input id="phone" name="phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="08x-xxx-xxxx"></div>
-      <div><label for="email">อีเมล</label>
-        <input id="email" name="email" type="email" autocomplete="email"></div>
+    <div class="result" id="result" role="status">
+      <p>🎉 <b>จองสำเร็จ!</b> จดรหัสจองนี้ไว้เพื่อแจ้งชำระเงิน</p>
+      <div class="code" id="rCode"></div>
+      <p id="rInfo"></p>
+      <div class="btns">
+        <button class="btn navy sm" type="button" id="copyBtn">คัดลอกรหัส</button>
+        <a class="btn gold sm" href="#payment">ไปแจ้งชำระเงิน</a>
+      </div>
     </div>
 
-    <div id="idWrap">
-      <label for="idcard">เลขบัตรประชาชน (ใช้ทำเอกสารผ่านด่าน) *</label>
-      <input id="idcard" name="idcard" inputmode="numeric" maxlength="13" placeholder="13 หลัก">
-    </div>
+    <form class="formcard" id="form" novalidate>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <div class="row">
-      <div><label for="people">จำนวนผู้เดินทาง *</label>
-        <input id="people" name="people" type="number" min="1" max="20" value="1" required></div>
-      <div><label for="size">ไซส์เสื้อ *</label>
-        <select id="size" name="size" required></select></div>
-    </div>
+      <p class="hint">จองได้ครั้งละ 1 ท่าน หากต้องการจองหลายท่านกรุณากรอกจองแยกทีละท่าน</p>
+      <label for="package">เลือกแพ็กเกจทัวร์ <span class="req">*</span></label>
+      <select id="package" name="package" required></select>
 
-    <label for="note">หมายเหตุ</label>
-    <textarea id="note" name="note" rows="2" placeholder="เช่น แพ้อาหาร, ขอพักห้องเดียวกับ..."></textarea>
+      <label for="name">ชื่อ - นามสกุล <span class="req">*</span></label>
+      <input id="name" name="name" required autocomplete="name">
 
-    <div class="total" id="total"></div>
-    <div class="pay" id="payBox"></div>
+      <div class="row">
+        <div><label for="phone">เบอร์โทรศัพท์ติดต่อ <span class="req">*</span></label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="08x-xxx-xxxx"></div>
+        <div><label for="email">อีเมล <span class="req">*</span></label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="ใช้รับยืนยันและแจ้งเตือนชำระเงิน"></div>
+      </div>
 
-    <button class="btn brand" id="submitBtn" type="submit" style="width:100%">ยืนยันส่งข้อมูลจองทัวร์</button>
-    <div id="msg" role="status"></div>
-  </form>
+      <div id="idWrap">
+        <label for="idcard">เลขบัตรประชาชนไทย (ใช้ทำเอกสารผ่านด่านเท่านั้น) <span class="req">*</span></label>
+        <input id="idcard" name="idcard" inputmode="numeric" maxlength="13" placeholder="13 หลัก" autocomplete="off">
+      </div>
+
+      <input id="people" name="people" type="hidden" value="1">
+      <label for="size">ไซส์เสื้อวิ่ง <span class="req">*</span></label>
+      <select id="size" name="size" required></select>
+
+      <label for="note">หมายเหตุ (ถ้ามี)</label>
+      <textarea id="note" name="note" rows="2" placeholder="เช่น แพ้อาหาร, ขอพักห้องเดียวกับ..."></textarea>
+
+      <div class="total" id="total"></div>
+      <div class="paybox" id="payBox"></div>
+
+      <button class="btn gold block" id="submitBtn" type="submit">ยืนยันส่งข้อมูลจองทัวร์</button>
+      <div class="msg" id="msg" role="alert"></div>
+    </form>
+  </div>
 </section>
 
-<section id="contact" style="text-align:center">
-  <p class="eyebrow">Contact</p>
-  <h2>ติดต่อสอบถาม</h2>
-  <p class="lead" id="contactText"></p>
-  <div id="contactBtns"></div>
+<section class="block" id="payment">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Payment Notice</span><h2>แจ้งชำระเงิน</h2><p class="sub">แนบสลิปโอนเงินพร้อมรหัสจอง</p></div>
+    <div class="steps">
+      <div><b>1</b>โอนเงินตามยอดจอง</div>
+      <div><b>2</b>กรอกรหัสจอง + แนบสลิป</div>
+      <div><b>3</b>รอทีมงานตรวจสอบและยืนยัน</div>
+    </div>
+
+    <form class="formcard" id="payForm" novalidate>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <label for="bookingId">รหัสการจอง <span class="req">*</span></label>
+      <input id="bookingId" name="bookingId" required placeholder="เช่น KT0001" autocomplete="off" autocapitalize="characters" maxlength="12">
+      <p class="hint" id="codeHint"></p>
+
+      <div class="row">
+        <div><label for="amount">ยอดเงินที่โอน (บาท) <span class="req">*</span></label>
+          <input id="amount" name="amount" type="number" min="1" step="0.01" inputmode="decimal" required></div>
+        <div><label for="bank">ธนาคารที่ใช้โอน <span class="req">*</span></label>
+          <select id="bank" name="bank" required></select></div>
+      </div>
+
+      <div class="row">
+        <div><label for="payDate">วันที่โอน <span class="req">*</span></label>
+          <input id="payDate" name="payDate" type="date" required></div>
+        <div><label for="payTime">เวลาที่โอน <span class="req">*</span></label>
+          <input id="payTime" name="payTime" type="time" required></div>
+      </div>
+
+      <label for="slip">แนบสลิปโอนเงิน (รูปภาพ) <span class="req">*</span></label>
+      <input id="slip" type="file" accept="image/*" required>
+      <img id="slipPrev" alt="ตัวอย่างสลิปที่เลือก">
+
+      <label for="payNote">หมายเหตุ (ถ้ามี)</label>
+      <input id="payNote" name="note" maxlength="200">
+
+      <div class="paybox" id="payBox2" style="margin-top:20px"></div>
+
+      <button class="btn gold block" id="paySubmit" type="submit">ส่งหลักฐานการชำระเงิน</button>
+      <div class="msg" id="payMsg" role="alert"></div>
+    </form>
+  </div>
 </section>
 
-<footer id="footer"></footer>
+<section class="block" id="posters">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Official Poster</span><h2>โปสเตอร์ทัวร์</h2></div>
+    <div class="posters">
+      <a href="poster1.jpg" target="_blank" rel="noopener"><img src="poster1.jpg" alt="โปสเตอร์ เชียงตุง RUN 2027" loading="lazy"></a>
+      <a href="poster2.jpg" target="_blank" rel="noopener"><img src="poster2.jpg" alt="Trip Itinerary 8-10 JAN 2027" loading="lazy"></a>
+      <a href="poster3.jpg" target="_blank" rel="noopener"><img src="poster3.jpg" alt="Packages & Pricing" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <!--<div class="weave" aria-hidden="true"></div>-->
+  <div class="inner">
+    <h2>ติดต่อสอบถามข้อมูลเพิ่มเติม</h2>
+    <p class="hours" id="hours"></p>
+    <div class="contact-btns" id="contactBtns"></div>
+    <div class="partners"><img src="partners.png" alt="ผู้สนับสนุนและพันธมิตร" width="600" height="140" loading="lazy"></div>
+    <small id="footer"></small>
+  </div>
+</footer>
 
 <script>
 /* ================================================================
-   ⚙️  ตั้งค่าทุกอย่างที่นี่ที่เดียว — แก้เนื้อหาเว็บได้โดยไม่ต้องแตะโค้ดส่วนอื่น
+   ⚙️ ตั้งค่า / แก้เนื้อหาเว็บทั้งหมดที่นี่ที่เดียว
    ================================================================ */
 const CONFIG = {
-  // 1) วาง URL ของ Apps Script Web App (ลงท้ายด้วย /exec) หลังทำตามขั้นตอนใน README
-  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwfSX7bMfv0VfHunwZ5vBLtdTpQ8WRvRXTlrEHZU9DeuKeIVYbC8zrdWBPI-VkoNIAOZg/exec",
+  // วาง URL ของ Apps Script Web App (ลงท้ายด้วย /exec) — ดูขั้นตอนใน README
+  SCRIPT_URL: "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE",
 
-  brand: "Northern Trail Run 2027",
-  badge: "เปิดรับสมัครแล้ว • จำนวนจำกัด",
-  title: "วิ่งสัมผัสเสน่ห์เมืองเหนือ Northern Trail Run 2027",
-  subtitle: "ทริปวิ่งสบาย ๆ ชมวิวหลักร้อยล้าน อากาศเย็น พร้อมทีมงานดูแลตลอดเส้นทาง",
+  tripName: "เชียงตุง RUN 2027",
+  tripStart: "2027-01-08T08:30:00+07:00",     // เวลาเริ่มทริป ใช้นับถอยหลัง
   dateText: "8 - 10 มกราคม 2570",
-  tripStart: "2027-01-08T08:30:00+07:00",   // ใช้นับถอยหลัง
-  itineraryLead: "3 วัน 2 คืน | ตัวอย่างเส้นทาง — แก้ไขได้",
+  season: "มกราคม 2027 · ช่วงอากาศเย็นสบายที่สุดของปี · เปิดรับสมัครแล้ว รับจำนวนจำกัด",
+  tagline: ["วิ่งชมเมืองรอบหนองตุง", "สัมผัสบรรยากาศยามเย็นเมืองเชียงตุง", "แวะชมดอกพญาเสือโคร่ง และสักการะ Buddha Garden"],
 
   highlights: [
-    {ico:"🏃", t:"วิ่งชมเมือง",       d:"City Run ระยะชิลล์ ๆ ท่ามกลางลมเย็นและวิวทะเลสาบ"},
-    {ico:"🌅", t:"บรรยากาศยามเย็น",    d:"ชมแสงอาทิตย์ลับขอบฟ้าสะท้อนผิวน้ำ"},
-    {ico:"🌸", t:"ชมดอกไม้ฤดูหนาว",    d:"ซากุระเมืองไทยบานสะพรั่งต้อนรับลมหนาว"},
-    {ico:"🛕", t:"สักการะสถานที่ศักดิ์สิทธิ์", d:"เสริมสิริมงคลต้อนรับปีใหม่"}
+    {ico:"🏃", t:"วิ่งชมเมืองรอบหนองตุง", d:"City Run ระยะสบาย ๆ ลมเย็นโอบล้อมด้วยวิวทะเลสาบหนองตุง"},
+    {ico:"🌅", t:"สัมผัสบรรยากาศยามเย็น", d:"ชมแสงสีทองยามอาทิตย์อัสดงสะท้อนผิวน้ำหนองตุง"},
+    {ico:"🌸", t:"ชมดอกพญาเสือโคร่ง",   d:"ซากุระเมืองไทยบานสะพรั่งต้อนรับลมหนาว"},
+    {ico:"🛕", t:"สักการะ Buddha Garden", d:"แลนด์มาร์กศักดิ์สิทธิ์ เสริมสิริมงคลต้อนรับปีใหม่"}
   ],
 
   itinerary: [
-    {day:"DAY 1 — 8 ม.ค. 2570", title:"เดินทาง & เช็คอิน", items:[
-      ["08:30 - 09:00","รวมพล ณ จุดนัดพบ ตรวจเอกสาร"],
-      ["09:00 - 13:30","เดินทางด้วยรถตู้ VIP ชมทิวทัศน์ระหว่างทาง"],
-      ["16:30 - 18:00","เช็คอินโรงแรมที่พัก"],
-      ["18:30","อาหารค่ำพื้นเมือง"]
+    {label:"DAY 1", date:"8 ม.ค.", title:"เดินทางผ่านด่านแม่สาย มุ่งสู่เชียงตุง & สักการะ Buddha Garden", items:[
+      {t:"08:30", d:"รวมพล ณ อาคารทำใบผ่านแดน ที่ว่าการอำเภอแม่สาย ผ่านพิธีการตรวจคนเข้าเมืองสู่ด่านท่าขี้เหล็ก"},
+      {t:"09:00", d:"เดินทางด้วยรถตู้ VIP มุ่งหน้าเมืองเชียงตุง ชมทิวทัศน์ขุนเขาแห่งรัฐฉาน"},
+      {t:"14:00", d:"สักการะมหาสถูปอันศักดิ์สิทธิ์ ณ Buddha Garden จุดศูนย์รวมพลังศรัทธา"},
+      {t:"17:00", d:"เช็คอินเข้าสู่โรงแรมที่พัก พักผ่อนตามอัธยาศัย และลิ้มลองอาหารค่ำเมนูไทเขินต้นตำรับริมหนองตุง"}
     ]},
-    {day:"DAY 2 — 9 ม.ค. 2570", title:"Morning Run & ท่องเที่ยวรอบเมือง", items:[
-      ["05:30 - 07:30","Morning Run วิ่งรับอรุณ"],
-      ["09:00 - 12:00","จุดชมวิวและแลนด์มาร์คสำคัญ"],
-      ["16:30 - 18:00","Sunset Run พร้อมชมรมวิ่งท้องถิ่น"],
-      ["19:00","อาหารค่ำ พร้อมมอบของที่ระลึก"]
+    {label:"DAY 2", date:"9 ม.ค.", title:"วิ่งรอบหนองตุง ชมรอบเมืองเชียงตุง & วัดสไตล์ไทเขิน", items:[
+      {t:"07:00", d:"อร่อยกับอาหารเช้าของโรงแรม และเดินเล่นรอบหนองตุง สัมผัสวิถีชีวิตรอบเมือง"},
+      {t:"08:00", d:"ขึ้นสู่จุดชมวิวขุนเขา ชมต้นยางไม้ยักษ์คู่เมือง 250 ปี และดอกไม้ที่สูงบานสะพรั่ง"},
+      {t:"13:00", d:"เยือนวัดจอมคำ สักการะพระยืนชี้นิ้ว Yat Taw Mu Buddha"},
+      {t:"16:30", chip:"Sunset Run", d:"ชมรมวิ่งเชียงตุงพาวิ่งรอบหนองตุงยามอาทิตย์อัสดง ชมแสงสีทองสะท้อนผิวน้ำ"},
+      {t:"18:00", d:"รับประทานอาหารค่ำ พักผ่อนตามอัธยาศัย"}
     ]},
-    {day:"DAY 3 — 10 ม.ค. 2570", title:"ตลาดเช้า ช้อปปิ้ง & เดินทางกลับ", items:[
-      ["06:30 - 08:30","เดินชมตลาดเช้า ชิมของพื้นเมือง"],
-      ["09:00 - 10:30","เลือกซื้อของฝาก"],
-      ["11:00","ออกเดินทางกลับ"],
-      ["15:00 - 16:30","ถึงจุดหมายโดยสวัสดิภาพ"]
+    {label:"DAY 3", date:"10 ม.ค.", title:"วิถีชีวิตตลาดเช้า ช้อปปิ้งของฝาก & เดินทางกลับ", items:[
+      {t:"07:00", d:"อร่อยกับอาหารเช้าของโรงแรม พร้อมเช็กเอาต์ เดินชมวิถีชีวิตชาวบ้าน ณ ตลาดเช้าเชียงตุง ชิมขนมเส้นไทเขินและกาแฟโบราณ เลือกซื้อของฝาก ผ้าทอมือ ชาไทเขิน งานหัตถกรรมพื้นบ้าน"},
+      {t:"11:00", d:"ออกเดินทางกลับสู่เมืองท่าขี้เหล็ก"},
+      {t:"16:00", d:"ผ่านพิธีการข้ามด่านแม่สาย จ.เชียงราย โดยสวัสดิภาพ"}
     ]}
   ],
+  tripNote: "ราคาในทริป รวมค่าธรรมเนียมด่านไทย-พม่า (Keng Tung Visa / Entry Visa) + ที่พัก 2 คืน + อาหารเช้า + รถตู้ปรับอากาศตลอดเส้นทาง และทัวร์สถานที่ท่องเที่ยวสำคัญในเชียงตุง <em>(ไม่รวมอาหารกลางวันและอาหารเย็น)</em>",
 
   packages: [
-    {id:"standard", name:"Standard Runner", tag:"แพ็กเกจนักวิ่งทั่วไป", price:5500, unit:"ท่าน",
-     inc:["พักห้องคู่ (Twin) 2 เตียง","ค่าธรรมเนียมผ่านด่าน","รถตู้ปรับอากาศ","เสื้อวิ่งประจำทริป","ไกด์ท้องถิ่น","อาหารเช้าโรงแรม + ของที่ระลึก"],
-     exc:"ไม่รวมอาหารเที่ยงและเย็น"},
-    {id:"vip", name:"VIP Exclusive", tag:"แพ็กเกจ VIP", price:6500, unit:"ท่าน", featured:true,
-     inc:["พักห้องเดี่ยว (Single)","ค่าธรรมเนียมผ่านด่าน","รถตู้ปรับอากาศ","เสื้อวิ่งประจำทริป","ไกด์ท้องถิ่น","อาหารเช้าโรงแรม + ของที่ระลึก"],
-     exc:"ไม่รวมอาหารเที่ยงและเย็น"}
+    {id:"standard", kind:"navy", name:"แพ็กเกจทั่วไป", price:5500, label:"แพ็กเกจทั่วไป",
+     inc:["พักห้องคู่ (Standard Twin Room) (2 เตียง) พร้อมอาหารเช้า","ค่าธรรมเนียมด่านไทย-พม่า","รถตู้ปรับอากาศ","เสื้อวิ่งเชียงตุง","ทัวร์สถานที่ท่องเที่ยวสำคัญในเชียงตุง พร้อมไกด์พม่า"]},
+    {id:"vip", kind:"gold", name:"แพ็กเกจ VIP Exclusive", price:6500, label:"VIP Exclusive",
+     inc:["พักห้องเดี่ยว (Single Room) พร้อมอาหารเช้า","ค่าธรรมเนียมด่านไทย-พม่า","รถตู้ปรับอากาศ","เสื้อวิ่งเชียงตุง","ทัวร์สถานที่ท่องเที่ยวสำคัญในเชียงตุง พร้อมไกด์พม่า"]}
   ],
+  packageNote: "* ทั้ง 2 แพ็กเกจ ไม่รวมอาหารกลางวันและอาหารเย็น",
 
   sizes: ["S (รอบอก 36\")","M (รอบอก 38\")","L (รอบอก 40\")","XL (รอบอก 42\")","2XL (รอบอก 44\")"],
-  askIdCard: true,       // ตั้ง false ถ้าไม่ต้องการเก็บเลขบัตรประชาชน (แนะนำให้เก็บเฉพาะที่จำเป็น)
+  askIdCard: true,    // false = ไม่เก็บเลขบัตรประชาชน (เก็บเท่าที่จำเป็น ตาม PDPA)
 
+  // ✏️ ใส่ข้อมูลบัญชีจริงของคุณ (และแก้ BANK ใน Code.gs ให้ตรงกัน)
   payment: {
-    bank: "ธนาคาร ○○○○", account: "xxx-x-xxxxx-x", holder: "ชื่อบัญชีของคุณ",
-    terms: "กรุณาโอนชำระภายใน 3 วันนับจากวันที่จอง และส่งสลิปทางช่องทางติดต่อด้านล่างเพื่อยืนยันสิทธิ์"
+    bank: "ธนาคารกสิกรไทย", account: "457-2-13363-5", holder: "กานต์ กานตวนิชกูร",
+    terms: "กรุณาโอนชำระเงินภายใน 24 ชั่วโมงหลังจอง แล้วแจ้งชำระเงิน (แนบสลิป) พร้อมรหัสจองที่หน้านี้"
   },
+  banks: ["กสิกรไทย (KBank)","ไทยพาณิชย์ (SCB)","กรุงเทพ (BBL)","กรุงไทย (KTB)","กรุงศรีอยุธยา (BAY)","ทีทีบี (ttb)","ออมสิน (GSB)","ธ.ก.ส. (BAAC)","ยูโอบี (UOB)","อื่น ๆ"],
 
   contact: {
-    phone: "0800000000", phoneText: "โทร 080-000-0000",
-    facebook: "https://www.facebook.com/",     // ลิงก์เพจ
-    line: "",                                   // เช่น https://line.me/ti/p/@yourid (เว้นว่างได้)
+    facebookName: "Chiang Mai Running Tour",
+    facebook: "https://www.facebook.com/profile.php?id=61596557661545",                         // ✏️ ใส่ลิงก์เพจ Facebook เช่น https://www.facebook.com/...
+    phone: "083 2077782", phoneText: "",             // ✏️ เช่น phone:"0800000000", phoneText:"โทร 080-000-0000"
+    line: "",                             // ✏️ เช่น https://line.me/ti/p/@yourid
     hours: "เวลาทำการ 08:30 - 18:00 น."
   },
-  footer: "© 2027 Northern Trail Run. All rights reserved."
+  footer: "© 2027 Keng Tung Running Tour · Chiang Mai Running Tour. All rights reserved."
 };
 
-/* ================= render ================= */
+/* ================= helpers ================= */
 const $ = id => document.getElementById(id);
-const fmt = n => n.toLocaleString('th-TH');
+const fmt = n => Number(n).toLocaleString('th-TH');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const todayTH = () => new Date().toLocaleDateString('sv-SE', {timeZone:'Asia/Bangkok'});
+function show(el, type, text){ el.className = 'msg' + (type ? ' ' + type : ''); el.textContent = text || ''; }
+const scriptReady = () => !CONFIG.SCRIPT_URL.startsWith('PASTE_');
 
-$('navLogo').textContent = CONFIG.brand;
-$('heroBadge').textContent = CONFIG.badge;
-$('heroTitle').textContent = CONFIG.title;
-$('heroSub').textContent = CONFIG.subtitle;
-$('heroDate').textContent = CONFIG.dateText;
-$('itLead').textContent = CONFIG.itineraryLead;
-$('bkLead').textContent = "ทริป " + CONFIG.brand + " (" + CONFIG.dateText + ")";
+/* ================= render ================= */
+document.title = CONFIG.tripName + " | Keng Tung Running Tour";
+$('h1').textContent = CONFIG.tripName + " — วิ่งชมเมืองรอบหนองตุง " + CONFIG.dateText;
+$('tag1').textContent = CONFIG.tagline[0];
+$('tag2').textContent = CONFIG.tagline[1];
+$('tag3').textContent = CONFIG.tagline[2];
+$('dateText').textContent = CONFIG.dateText;
+$('seasonText').textContent = CONFIG.season;
+$('itSub').textContent = CONFIG.dateText + " | เส้นทางด่านแม่สาย – ท่าขี้เหล็ก – เชียงตุง";
+$('pkSub').textContent = "3 วัน 2 คืน · " + CONFIG.dateText;
+$('bkSub').textContent = "ทริป " + CONFIG.tripName + " (" + CONFIG.dateText + ")";
+$('tripNote').innerHTML = CONFIG.tripNote;
+$('pkgNote').textContent = CONFIG.packageNote;
 $('footer').textContent = CONFIG.footer;
-document.title = CONFIG.brand;
 
 $('hlGrid').innerHTML = CONFIG.highlights.map(h =>
-  `<div class="card"><div class="ico">${h.ico}</div><h3>${h.t}</h3><p>${h.d}</p></div>`).join('');
+  `<div class="hl"><div class="ico" aria-hidden="true">${h.ico}</div><h3>${esc(h.t)}</h3><p>${esc(h.d)}</p></div>`).join('');
 
-$('days').innerHTML = CONFIG.itinerary.map(d =>
-  `<div class="day"><h3>${d.day}</h3><h4>${d.title}</h4><ul>${
-    d.items.map(i=>`<li><b>${i[0]} น.</b>${i[1]}</li>`).join('')}</ul></div>`).join('');
-
-$('pkgGrid').innerHTML = CONFIG.packages.map(p =>
-  `<div class="card pkg ${p.featured?'featured':''}">
-     <span class="tag">${p.name}</span><h3>${p.tag}</h3>
-     <div class="price">${fmt(p.price)} <small>บาท / ${p.unit}</small></div>
-     <ul>${p.inc.map(x=>`<li>${x}</li>`).join('')}<li><i>${p.exc}</i></li></ul>
-     <a class="btn ${p.featured?'':'brand'}" href="#booking" data-pkg="${p.id}">เลือกแพ็กเกจนี้</a>
-   </div>`).join('');
-
-$('package').innerHTML = CONFIG.packages.map(p =>
-  `<option value="${p.id}">${p.name} (${fmt(p.price)} บาท/${p.unit})</option>`).join('');
-$('size').innerHTML = CONFIG.sizes.map(s=>`<option>${s}</option>`).join('');
-
-const pay = CONFIG.payment;
-$('payBox').innerHTML = `<b>ช่องทางชำระเงิน</b><br>${pay.bank} ${pay.account}<br>ชื่อบัญชี: ${pay.holder}<br><br>${pay.terms}`;
+$('days').innerHTML = CONFIG.itinerary.map(d => `
+  <article class="day">
+    <div class="day-label"><b>${esc(d.label)}</b><span>${esc(d.date)}</span></div>
+    <div class="day-body">
+      <h3>${esc(d.title)}</h3>
+      <ul class="tl">${d.items.map(i => `<li><time>${esc(i.t)} น.</time><p>${i.chip ? `<span class="chip">${esc(i.chip)}</span> ` : ''}${esc(i.d)}</p></li>`).join('')}</ul>
+    </div>
+  </article>`).join('');
 
 const c = CONFIG.contact;
-$('contactText').textContent = c.hours;
+$('fbBar').textContent = "สนใจดูรายละเอียดได้ที่ Facebook: " + c.facebookName;
+if (c.facebook) $('fbBar').href = c.facebook; else $('fbBar').removeAttribute('href');
+
+$('pkgGrid').innerHTML = CONFIG.packages.map(p => `
+  <article class="pkg ${p.kind}">
+    <div class="pricebox"><h3>${esc(p.name)}</h3><div class="price">${fmt(p.price)}</div><div class="unit">บาท / ท่าน</div></div>
+    <ul class="checks">${p.inc.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <a class="btn gold" href="#booking" data-pkg="${p.id}">เลือกแพ็กเกจนี้</a>
+  </article>`).join('');
+
+$('package').innerHTML = CONFIG.packages.map(p => `<option value="${p.id}">${esc(p.label)} (${fmt(p.price)} บาท/ท่าน)</option>`).join('');
+$('size').innerHTML = CONFIG.sizes.map(s => `<option>${esc(s)}</option>`).join('');
+$('bank').innerHTML = '<option value="">— เลือกธนาคาร —</option>' + CONFIG.banks.map(b => `<option>${esc(b)}</option>`).join('');
+
+const pay = CONFIG.payment;
+const payHtml = `<b>ช่องทางการชำระเงิน / โอนเงินจอง</b><br>${esc(pay.bank)}<br><span class="acct">${esc(pay.account)}</span><br>ชื่อบัญชี: <b>${esc(pay.holder)}</b><br><br>${esc(pay.terms)}`;
+$('payBox').innerHTML = payHtml;
+$('payBox2').innerHTML = payHtml;
+
+$('hours').textContent = c.hours;
 $('contactBtns').innerHTML =
-  `<a class="btn brand" href="tel:${c.phone}">${c.phoneText}</a> ` +
-  (c.facebook ? `<a class="btn" href="${c.facebook}" target="_blank" rel="noopener">Facebook</a> ` : '') +
-  (c.line ? `<a class="btn" href="${c.line}" target="_blank" rel="noopener">LINE</a>` : '');
+  (c.phone ? `<a class="btn gold" href="tel:${esc(c.phone)}">${esc(c.phoneText || c.phone)}</a>` : '') +
+  (c.facebook ? `<a class="btn ghost" href="${esc(c.facebook)}" target="_blank" rel="noopener">Facebook: ${esc(c.facebookName)}</a>` : `<span class="btn ghost" style="cursor:default">Facebook: ${esc(c.facebookName)}</span>`) +
+  (c.line ? `<a class="btn ghost" href="${esc(c.line)}" target="_blank" rel="noopener">LINE</a>` : '');
 
-if(!CONFIG.askIdCard) $('idWrap').style.display='none';
+if (!CONFIG.askIdCard) $('idWrap').style.display = 'none';
+$('payDate').value = todayTH(); $('payDate').max = todayTH();
 
-document.querySelectorAll('[data-pkg]').forEach(a => a.addEventListener('click', () => {
-  $('package').value = a.dataset.pkg; updateTotal();
-}));
+document.querySelectorAll('[data-pkg]').forEach(a => a.addEventListener('click', () => { $('package').value = a.dataset.pkg; updateTotal(); }));
 
 /* ================= total ================= */
 function updateTotal(){
-  const p = CONFIG.packages.find(x=>x.id===$('package').value);
-  const n = Math.max(1, parseInt($('people').value)||1);
-  $('total').textContent = "ยอดรวมทั้งสิ้น " + fmt(p.price*n) + " บาท";
+  const p = CONFIG.packages.find(x => x.id === $('package').value);
+  const n = Math.max(1, parseInt($('people').value) || 1);
+  $('total').textContent = "ยอดรวมทั้งสิ้น " + fmt(p.price * n) + " บาท";
 }
 $('package').addEventListener('change', updateTotal);
 $('people').addEventListener('input', updateTotal);
@@ -291,40 +515,147 @@ updateTotal();
 /* ================= countdown ================= */
 const target = new Date(CONFIG.tripStart).getTime();
 function tick(){
-  let d = Math.max(0, target - Date.now());
-  $('cd').textContent = Math.floor(d/864e5);
-  $('ch').textContent = Math.floor(d%864e5/36e5);
-  $('cm').textContent = Math.floor(d%36e5/6e4);
-  $('cs').textContent = Math.floor(d%6e4/1e3);
+  const d = Math.max(0, target - Date.now());
+  $('cd').textContent = Math.floor(d / 864e5);
+  $('ch').textContent = Math.floor(d % 864e5 / 36e5);
+  $('cm').textContent = Math.floor(d % 36e5 / 6e4);
+  $('cs').textContent = Math.floor(d % 6e4 / 1e3);
 }
 tick(); setInterval(tick, 1000);
 
-/* ================= submit ================= */
-const msg = $('msg');
-function show(type, text){ msg.className = type; msg.textContent = text; }
+/* ================= network ================= */
+async function post(params, timeoutMs = 60000){
+  if (!scriptReady()) throw new Error('ยังไม่ได้ตั้งค่า SCRIPT_URL (ดู README)');
+  const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), timeoutMs);
+  try {
+    const res = await fetch(CONFIG.SCRIPT_URL, {method:'POST', body:new URLSearchParams(params), signal:ctl.signal});
+    let data;
+    try { data = await res.json(); }
+    catch(_) { throw new Error('เซิร์ฟเวอร์ตอบกลับไม่ถูกต้อง (ตรวจสอบการ Deploy: Who has access ต้องเป็น Anyone)'); }
+    if (!data.ok) throw new Error(data.error || 'เกิดข้อผิดพลาด');
+    return data;
+  } catch(e) {
+    if (e.name === 'AbortError') throw new Error('หมดเวลาเชื่อมต่อ กรุณาลองใหม่');
+    if (e instanceof TypeError) throw new Error('เชื่อมต่อเซิร์ฟเวอร์ไม่ได้ (ตรวจสอบอินเทอร์เน็ต หรือการตั้งค่า Deploy ของ Apps Script)');
+    throw e;
+  } finally { clearTimeout(timer); }
+}
 
+/* ================= ปิดรับสมัครเมื่อที่นั่งเต็ม ================= */
+// จำนวนที่นั่งตั้งใน Code.gs (MAX_SEATS) — หน้าเว็บแค่ถามสถานะจากเซิร์ฟเวอร์
+async function checkSeats(){
+  if (!scriptReady()) return;
+  try {
+    const r = await fetch(CONFIG.SCRIPT_URL + '?action=status');
+    const d = await r.json();
+    if (d.ok && !d.open) applyClosed(d.max);
+  } catch(_) { /* ไม่เป็นไร เซิร์ฟเวอร์ยังตรวจซ้ำตอนกดจอง */ }
+}
+function applyClosed(max){
+  $('form').querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = true);
+  $('submitBtn').textContent = 'ปิดรับสมัครแล้ว';
+  show($('msg'), 'err', 'ปิดรับสมัครแล้ว — ครบ ' + max + ' ท่านแล้ว หากสนใจกรุณาติดต่อทีมงาน');
+  document.querySelectorAll('a.btn[href="#booking"]').forEach(a => {
+    a.textContent = 'ปิดรับสมัครแล้ว'; a.removeAttribute('href'); a.style.opacity = '.75'; a.style.cursor = 'default';
+  });
+}
+checkSeats();
+
+/* ================= booking ================= */
 $('form').addEventListener('submit', async e => {
   e.preventDefault();
-  const f = e.target;
-  if(!f.name.value.trim()) return show('err','กรุณากรอกชื่อ - นามสกุล');
-  if(!/^0\d{8,9}$/.test(f.phone.value.replace(/[-\s]/g,''))) return show('err','เบอร์โทรศัพท์ไม่ถูกต้อง');
-  if(CONFIG.askIdCard && !/^\d{13}$/.test(f.idcard.value.trim())) return show('err','เลขบัตรประชาชนต้องเป็นตัวเลข 13 หลัก');
-  if(CONFIG.SCRIPT_URL.startsWith('PASTE_')) return show('err','ยังไม่ได้ตั้งค่า SCRIPT_URL (ดู README)');
+  const f = e.target, msg = $('msg');
+  if (!f.name.value.trim()) return show(msg, 'err', 'กรุณากรอกชื่อ - นามสกุล');
+  if (!/^0\d{8,9}$/.test(f.phone.value.replace(/[-\s]/g, ''))) return show(msg, 'err', 'เบอร์โทรศัพท์ไม่ถูกต้อง');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) return show(msg, 'err', 'กรุณากรอกอีเมลให้ถูกต้อง');
+  if (CONFIG.askIdCard && !/^\d{13}$/.test(f.idcard.value.trim())) return show(msg, 'err', 'เลขบัตรประชาชนต้องเป็นตัวเลข 13 หลัก');
+  if (!(parseInt(f.people.value) >= 1)) return show(msg, 'err', 'กรุณาระบุจำนวนผู้เดินทาง');
 
-  const btn = $('submitBtn'); btn.disabled = true; btn.textContent = 'กำลังส่งข้อมูล...';
-  show('', ''); msg.style.display='none';
-  try{
-    const body = new URLSearchParams(new FormData(f));
-    const res = await fetch(CONFIG.SCRIPT_URL, {method:'POST', body});
-    const data = await res.json();
-    if(!data.ok) throw new Error(data.error || 'เกิดข้อผิดพลาด');
-    show('ok', `✅ บันทึกการจองเรียบร้อย! รหัสการจอง: ${data.id} | ยอดชำระ ${fmt(data.total)} บาท — กรุณาโอนและส่งสลิปภายใน 3 วัน`);
+  const btn = $('submitBtn'); btn.disabled = true; btn.textContent = 'กำลังส่งข้อมูล...'; show(msg, '');
+  try {
+    const params = Object.fromEntries(new FormData(f)); params.action = 'booking';
+    const data = await post(params);
+    $('rCode').textContent = data.id;
+    $('rInfo').textContent = 'ยอดที่ต้องชำระ ' + fmt(data.total) + ' บาท · เราส่งอีเมลยืนยันให้แล้ว — กรุณาชำระภายใน 24 ชั่วโมง';
+    $('result').classList.add('show');
+    $('bookingId').value = data.id; $('amount').value = data.total; lookupCode();
     f.reset(); updateTotal();
-  }catch(err){
-    show('err', 'ส่งข้อมูลไม่สำเร็จ: ' + err.message + ' — กรุณาลองใหม่หรือติดต่อทีมงานโดยตรง');
-  }finally{
-    btn.disabled = false; btn.textContent = 'ยืนยันส่งข้อมูลจองทัวร์';
-  }
+    $('result').scrollIntoView({behavior:'smooth', block:'center'});
+  } catch(err) {
+    show(msg, 'err', 'ส่งข้อมูลไม่สำเร็จ: ' + err.message);
+    if (/ปิดรับสมัคร/.test(err.message)) { checkSeats(); return; }
+  } finally { if (!/ปิดรับสมัครแล้ว/.test($('submitBtn').textContent)) { btn.disabled = false; btn.textContent = 'ยืนยันส่งข้อมูลจองทัวร์'; } }
+});
+
+$('copyBtn').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText($('rCode').textContent); $('copyBtn').textContent = 'คัดลอกแล้ว ✓'; }
+  catch(_) { $('copyBtn').textContent = 'กดค้างที่รหัสเพื่อคัดลอก'; }
+});
+
+/* ================= payment notice ================= */
+const codeEl = $('bookingId');
+codeEl.addEventListener('input', () => { codeEl.value = codeEl.value.toUpperCase().replace(/\s/g, ''); });
+codeEl.addEventListener('change', lookupCode);
+async function lookupCode(){
+  const hint = $('codeHint'); hint.textContent = '';
+  const id = codeEl.value.trim().toUpperCase();
+  if (!scriptReady() || !/^KT\d{4,}$/.test(id)) return;
+  try {
+    const r = await fetch(CONFIG.SCRIPT_URL + '?action=lookup&id=' + encodeURIComponent(id));
+    const d = await r.json();
+    if (!d.ok) { hint.textContent = '⚠️ ไม่พบรหัสจองนี้ กรุณาตรวจสอบอีกครั้ง'; return; }
+    hint.textContent = '✓ พบการจอง ' + d.people + ' ท่าน · ยอดที่ต้องชำระ ' + fmt(d.total) + ' บาท · สถานะ: ' + d.status;
+    if (!$('amount').value) $('amount').value = d.total;
+  } catch(_) { /* ไม่เป็นไร ตรวจอีกครั้งตอนส่ง */ }
+}
+
+function compressImage(file, maxSide = 1600, quality = .8){
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const k = Math.min(1, maxSide / Math.max(img.width, img.height));
+      const w = Math.round(img.width * k), h = Math.round(img.height * k);
+      const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+      const ctx = cv.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); ctx.drawImage(img, 0, 0, w, h);
+      resolve(cv.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('อ่านไฟล์รูปไม่ได้ กรุณาใช้ไฟล์ JPG หรือ PNG')); };
+    img.src = url;
+  });
+}
+
+$('slip').addEventListener('change', e => {
+  const f = e.target.files[0], prev = $('slipPrev');
+  if (!f) { prev.style.display = 'none'; return; }
+  prev.src = URL.createObjectURL(f); prev.style.display = 'block';
+});
+
+$('payForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, msg = $('payMsg');
+  const id = f.bookingId.value.trim().toUpperCase();
+  const file = $('slip').files[0];
+  if (!/^KT\d{4,}$/.test(id)) return show(msg, 'err', 'รูปแบบรหัสจองไม่ถูกต้อง (ตัวอย่าง KT0001)');
+  if (!(parseFloat(f.amount.value) > 0)) return show(msg, 'err', 'กรุณากรอกยอดเงินที่โอน');
+  if (!f.bank.value) return show(msg, 'err', 'กรุณาเลือกธนาคารที่ใช้โอน');
+  if (!f.payDate.value || !f.payTime.value) return show(msg, 'err', 'กรุณาระบุวันที่และเวลาที่โอน');
+  if (!file) return show(msg, 'err', 'กรุณาแนบรูปสลิปโอนเงิน');
+  if (!file.type.startsWith('image/')) return show(msg, 'err', 'ไฟล์สลิปต้องเป็นรูปภาพ (JPG/PNG)');
+  if (file.size > 20 * 1024 * 1024) return show(msg, 'err', 'ไฟล์ใหญ่เกิน 20 MB');
+
+  const btn = $('paySubmit'); btn.disabled = true; btn.textContent = 'กำลังอัปโหลดสลิป...'; show(msg, 'info', 'กำลังอัปโหลด กรุณารอสักครู่ อย่าปิดหน้านี้');
+  try {
+    const dataUrl = await compressImage(file);
+    const data = await post({
+      action:'payment', website:f.website.value, bookingId:id, amount:f.amount.value, bank:f.bank.value,
+      payDate:f.payDate.value, payTime:f.payTime.value, note:f.note.value, slip:dataUrl.split(',')[1]
+    });
+    show(msg, 'ok', '✅ ได้รับหลักฐานการชำระเงินของรหัส ' + data.id + ' แล้ว (' + data.match + ') ทีมงานจะตรวจสอบและยืนยันให้ภายหลัง' + (data.over ? ' — หมายเหตุ: ที่นั่งเต็มแล้ว ทีมงานจะติดต่อกลับเรื่องการยืนยันสิทธิ์' : ''));
+    f.reset(); $('slipPrev').style.display = 'none'; $('payDate').value = todayTH(); $('codeHint').textContent = '';
+  } catch(err) {
+    show(msg, 'err', 'ส่งหลักฐานไม่สำเร็จ: ' + err.message);
+  } finally { btn.disabled = false; btn.textContent = 'ส่งหลักฐานการชำระเงิน'; }
 });
 </script>
 </body>
