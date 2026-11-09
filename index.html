@@ -315,7 +315,7 @@
       <p class="hint" id="codeHint"></p>
 
       <div class="row">
-        <div><label for="amount">ยอดเงินที่โอน (บาท) <span class="req">*</span></label>
+        <div><label for="amount">ยอดเงินที่โอน (บาท) ตามสลิป <span class="req">*</span></label>
           <input id="amount" name="amount" type="number" min="1" step="0.01" inputmode="decimal" required></div>
         <div><label for="bank">ธนาคารที่ใช้โอน <span class="req">*</span></label>
           <select id="bank" name="bank" required></select></div>
@@ -371,7 +371,7 @@
    ================================================================ */
 const CONFIG = {
   // วาง URL ของ Apps Script Web App (ลงท้ายด้วย /exec) — ดูขั้นตอนใน README
-  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbw4S_Kl_hpAeZfBdNiSX4ZRXCXtoFHMRkgV1VAD0eR5V2RsW-2wGFhLx29MrxqkynMjww/exec",
+  SCRIPT_URL: "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE",
 
   tripName: "เชียงตุง RUN 2027",
   tripStart: "2027-01-08T08:30:00+07:00",     // เวลาเริ่มทริป ใช้นับถอยหลัง
@@ -578,7 +578,7 @@ $('form').addEventListener('submit', async e => {
     $('rCode').textContent = data.id;
     $('rInfo').textContent = 'ยอดที่ต้องชำระ ' + fmt(data.total) + ' บาท · เราส่งอีเมลยืนยันให้แล้ว — กรุณาชำระภายใน 24 ชั่วโมง';
     $('result').classList.add('show');
-    $('bookingId').value = data.id; $('amount').value = data.total; lookupCode();
+    $('bookingId').value = data.id; lookupCode();
     f.reset(); updateTotal();
     $('result').scrollIntoView({behavior:'smooth', block:'center'});
   } catch(err) {
@@ -605,7 +605,6 @@ async function lookupCode(){
     const d = await r.json();
     if (!d.ok) { hint.textContent = '⚠️ ไม่พบรหัสจองนี้ กรุณาตรวจสอบอีกครั้ง'; return; }
     hint.textContent = '✓ พบการจอง ' + d.people + ' ท่าน · ยอดที่ต้องชำระ ' + fmt(d.total) + ' บาท · สถานะ: ' + d.status;
-    if (!$('amount').value) $('amount').value = d.total;
   } catch(_) { /* ไม่เป็นไร ตรวจอีกครั้งตอนส่ง */ }
 }
 
@@ -651,7 +650,7 @@ $('payForm').addEventListener('submit', async e => {
       action:'payment', website:f.website.value, bookingId:id, amount:f.amount.value, bank:f.bank.value,
       payDate:f.payDate.value, payTime:f.payTime.value, note:f.note.value, slip:dataUrl.split(',')[1]
     });
-    show(msg, 'ok', '✅ ได้รับหลักฐานการชำระเงินของรหัส ' + data.id + ' แล้ว (' + data.match + ') ทีมงานจะตรวจสอบและยืนยันให้ภายหลัง' + (data.over ? ' — หมายเหตุ: ที่นั่งเต็มแล้ว ทีมงานจะติดต่อกลับเรื่องการยืนยันสิทธิ์' : ''));
+    show(msg, 'ok', '✅ ได้รับหลักฐานการชำระเงินของรหัส ' + data.id + ' แล้ว ทีมงานจะตรวจสอบสลิปและยอดเงิน แล้วยืนยันสิทธิ์ให้ภายหลัง' + (data.over ? ' — หมายเหตุ: ที่นั่งเต็มแล้ว ทีมงานจะติดต่อกลับเรื่องการยืนยันสิทธิ์' : ''));
     f.reset(); $('slipPrev').style.display = 'none'; $('payDate').value = todayTH(); $('codeHint').textContent = '';
   } catch(err) {
     show(msg, 'err', 'ส่งหลักฐานไม่สำเร็จ: ' + err.message);
