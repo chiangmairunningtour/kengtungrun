@@ -423,7 +423,7 @@ const CONFIG = {
   // ✏️ ใส่ข้อมูลบัญชีจริงของคุณ (และแก้ BANK ใน Code.gs ให้ตรงกัน)
   payment: {
     bank: "ธนาคารกสิกรไทย", account: "457-2-13363-5", holder: "กานต์ กานตวนิชกูร",
-    terms: "กรุณาโอนชำระเงินภายใน 24 ชั่วโมงหลังจอง แล้วแจ้งชำระเงิน (แนบสลิป) พร้อมรหัสจองที่หน้านี้"
+    terms: "ที่นั่งถูกกันไว้ให้ 24 ชั่วโมงหลังจอง กรุณาโอนและแจ้งชำระเงิน (แนบสลิป) พร้อมรหัสจองที่หน้านี้ภายในเวลาดังกล่าว หากเลยกำหนดที่นั่งจะถูกปล่อยคืนอัตโนมัติ"
   },
   banks: ["กสิกรไทย (KBank)","ไทยพาณิชย์ (SCB)","กรุงเทพ (BBL)","กรุงไทย (KTB)","กรุงศรีอยุธยา (BAY)","ทีทีบี (ttb)","ออมสิน (GSB)","ธ.ก.ส. (BAAC)","ยูโอบี (UOB)","อื่น ๆ"],
 
@@ -549,15 +549,19 @@ async function checkSeats(){
   try {
     const r = await fetch(CONFIG.SCRIPT_URL + '?action=status');
     const d = await r.json();
-    if (d.ok && !d.open) applyClosed(d.max);
+    if (d.ok && !d.open) applyClosed(d.max, d.full === false, d.holdHours);
   } catch(_) { /* ไม่เป็นไร เซิร์ฟเวอร์ยังตรวจซ้ำตอนกดจอง */ }
 }
-function applyClosed(max){
+function applyClosed(max, temp, holdHours){
+  // temp = ที่นั่งเต็มเพราะมีผู้กันที่นั่งรอชำระเงินอยู่ (ยังไม่ครบจริง) อาจมีที่ว่างคืนภายใน holdHours ชั่วโมง
+  const label = temp ? 'ที่นั่งเต็มชั่วคราว' : 'ปิดรับสมัครแล้ว';
   $('form').querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = true);
-  $('submitBtn').textContent = 'ปิดรับสมัครแล้ว';
-  show($('msg'), 'err', 'ปิดรับสมัครแล้ว — ครบ ' + max + ' ท่านแล้ว หากสนใจกรุณาติดต่อทีมงาน');
+  $('submitBtn').textContent = label;
+  show($('msg'), 'err', temp
+    ? 'ที่นั่งครบ ' + max + ' ท่านแล้ว (รวมผู้ที่กำลังกันที่นั่งรอชำระเงิน) หากบางท่านไม่ชำระภายใน ' + (holdHours || 24) + ' ชั่วโมง จะมีที่นั่งว่างคืน — กรุณากลับมาเช็กอีกครั้งภายหลัง หรือติดต่อทีมงาน'
+    : 'ปิดรับสมัครแล้ว — ครบ ' + max + ' ท่านแล้ว หากสนใจกรุณาติดต่อทีมงาน');
   document.querySelectorAll('a.btn[href="#booking"]').forEach(a => {
-    a.textContent = 'ปิดรับสมัครแล้ว'; a.removeAttribute('href'); a.style.opacity = '.75'; a.style.cursor = 'default';
+    a.textContent = label; a.removeAttribute('href'); a.style.opacity = '.75'; a.style.cursor = 'default';
   });
 }
 checkSeats();
@@ -577,7 +581,7 @@ $('form').addEventListener('submit', async e => {
     const params = Object.fromEntries(new FormData(f)); params.action = 'booking';
     const data = await post(params);
     $('rCode').textContent = data.id;
-    $('rInfo').textContent = 'ยอดที่ต้องชำระ ' + fmt(data.total) + ' บาท · เราส่งอีเมลยืนยันให้แล้ว — กรุณาชำระภายใน 24 ชั่วโมง';
+    $('rInfo').innerHTML = 'ยอดที่ต้องชำระ ' + fmt(data.total) + ' บาท<br>⏰ ที่นั่งถูกกันไว้ให้ ' + (data.holdHours || 24) + ' ชั่วโมง' + (data.holdUntil ? ' (ถึง ' + data.holdUntil + ')' : '') + ' — กรุณาโอนและแจ้งชำระเงินภายในเวลานี้ มิฉะนั้นที่นั่งจะถูกปล่อยคืน<br><small>เราส่งอีเมลยืนยันให้แล้ว หากไม่พบในกล่องจดหมาย กรุณาตรวจโฟลเดอร์ <b>Spam / โปรโมชัน</b> และกด “ไม่ใช่สแปม”</small>';
     $('result').classList.add('show');
     $('bookingId').value = data.id; lookupCode();
     f.reset(); updateTotal();
@@ -585,7 +589,7 @@ $('form').addEventListener('submit', async e => {
   } catch(err) {
     show(msg, 'err', 'ส่งข้อมูลไม่สำเร็จ: ' + err.message);
     if (/ปิดรับสมัคร/.test(err.message)) { checkSeats(); return; }
-  } finally { if (!/ปิดรับสมัครแล้ว/.test($('submitBtn').textContent)) { btn.disabled = false; btn.textContent = 'ยืนยันส่งข้อมูลจองทัวร์'; } }
+  } finally { if (!/ปิดรับสมัครแล้ว|ที่นั่งเต็มชั่วคราว/.test($('submitBtn').textContent)) { btn.disabled = false; btn.textContent = 'ยืนยันส่งข้อมูลจองทัวร์'; } }
 });
 
 $('copyBtn').addEventListener('click', async () => {
