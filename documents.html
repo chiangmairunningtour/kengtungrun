@@ -82,7 +82,7 @@
   <div class="in">
     <span class="eyebrow">Border Documents</span>
     <h1>ส่งเอกสารผ่านแดน</h1>
-    <p>รูปหน้าพาสปอร์ต + รูปถ่ายหน้าตรง สำหรับทำ Entry Visa</p>
+    <p>รูปบัตรประชาชน + รูปถ่ายหน้าตรง สำหรับทำเอกสารผ่านแดน</p>
   </div>
 </header>
 <div class="weave" aria-hidden="true"></div>
@@ -91,7 +91,7 @@
   <div class="banner" id="banner" role="status"></div>
 
   <div class="tips">
-    <div class="tip"><b>📘 รูปหน้าพาสปอร์ต</b>ถ่ายหน้าที่มีรูปและข้อมูลส่วนตัว ให้เห็นครบทั้งหน้า ตัวอักษรคมชัด ไม่สะท้อนแสง ไม่ตัดขอบ</div>
+    <div class="tip"><b>🪪 รูปบัตรประชาชน (ด้านหน้า)</b>ถ่ายด้านหน้าบัตรให้เห็นครบทั้งใบ ตัวอักษรและเลขบัตรคมชัด ไม่สะท้อนแสง ไม่ตัดขอบ</div>
     <div class="tip"><b>🙂 รูปถ่ายหน้าตรง</b>มองตรงกล้อง เห็นใบหน้าชัดเจนทั้งหน้า พื้นหลังเรียบ ไม่สวมหมวกหรือแว่นกันแดด</div>
   </div>
 
@@ -110,9 +110,9 @@
     </div>
     <p class="hint">ใช้ยืนยันตัวตน เฉพาะผู้ที่ทีมงานยืนยันสิทธิ์แล้ว (ได้รับอีเมลยืนยัน) จึงส่งเอกสารได้</p>
 
-    <label for="passport">รูปหน้าพาสปอร์ต (ไฟล์รูปภาพ)</label>
-    <input type="file" id="passport" accept="image/*">
-    <img class="prev" id="passportPrev" alt="ตัวอย่างรูปพาสปอร์ตที่เลือก">
+    <label for="idcard">รูปบัตรประชาชน ด้านหน้า (ไฟล์รูปภาพ)</label>
+    <input type="file" id="idcard" accept="image/*">
+    <img class="prev" id="idcardPrev" alt="ตัวอย่างรูปบัตรประชาชนที่เลือก">
 
     <label for="photo">รูปถ่ายหน้าตรง (ไฟล์รูปภาพ)</label>
     <input type="file" id="photo" accept="image/*">
@@ -121,7 +121,7 @@
 
     <label class="consent">
       <input type="checkbox" id="consent">
-      <span>ข้าพเจ้ายินยอมให้ทีมงานเก็บและใช้รูปพาสปอร์ตและรูปถ่ายนี้ เพื่อดำเนินการทำเอกสารผ่านแดน/Entry Visa ของทริปนี้เท่านั้น</span>
+      <span>ข้าพเจ้ายินยอมให้ทีมงานเก็บและใช้รูปบัตรประชาชนและรูปถ่ายนี้ เพื่อดำเนินการทำเอกสารผ่านแดนของทริปนี้เท่านั้น</span>
     </label>
 
     <button class="btn gold block" id="submitBtn" type="submit">อัปโหลดเอกสาร</button>
@@ -175,7 +175,7 @@ function bindPreview(inputId, imgId){
     img.src = URL.createObjectURL(f); img.style.display = 'block';
   });
 }
-bindPreview('passport', 'passportPrev'); bindPreview('photo', 'photoPrev');
+bindPreview('idcard', 'idcardPrev'); bindPreview('photo', 'photoPrev');
 $('bookingId').addEventListener('input', e => { e.target.value = e.target.value.toUpperCase().replace(/\s/g, ''); });
 
 /* ===== บีบอัดรูปก่อนอัปโหลด ===== */
@@ -217,7 +217,7 @@ $('docForm').addEventListener('submit', async e => {
   const id = $('bookingId').value.trim().toUpperCase();
   const phone = $('phone').value.trim();
   const items = [
-    {kind:'passport', label:'รูปหน้าพาสปอร์ต', file:$('passport').files[0], side:2000, q:.85},
+    {kind:'idcard', label:'รูปบัตรประชาชน', file:$('idcard').files[0], side:2000, q:.85},
     {kind:'photo',    label:'รูปถ่ายหน้าตรง',   file:$('photo').files[0],    side:1400, q:.88}
   ].filter(i => i.file);
 
@@ -242,7 +242,7 @@ $('docForm').addEventListener('submit', async e => {
       done.push(i.label);
     }
     show(msg, 'ok', '✅ ได้รับ' + done.join(' และ') + 'ของรหัส ' + id + ' แล้ว' + (last.complete ? ' — เอกสารครบทั้ง 2 รายการแล้ว ทีมงานจะดำเนินการต่อ' : ' — ยังขาดอีก 1 รายการ ส่งเพิ่มได้ในหน้านี้'));
-    $('docForm').reset(); $('passportPrev').style.display = 'none'; $('photoPrev').style.display = 'none';
+    $('docForm').reset(); $('idcardPrev').style.display = 'none'; $('photoPrev').style.display = 'none';
   } catch(err) {
     show(msg, 'err', (done.length ? 'ส่ง' + done.join(' และ') + 'สำเร็จแล้ว แต่ส่งรายการถัดไปไม่สำเร็จ: ' : 'ส่งเอกสารไม่สำเร็จ: ') + err.message);
   } finally { btn.disabled = false; btn.textContent = 'อัปโหลดเอกสาร'; }
